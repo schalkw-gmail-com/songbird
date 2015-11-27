@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# choose a firefox profile you want
+java -jar scripts/selenium-server-standalone-2.48.2.jar -Dwebdriver.firefox.profile=default

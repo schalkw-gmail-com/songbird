@@ -1,0 +1,7 @@
+#!/bin/bash
+
+app/console cache:clear --no-warmup
+
+# start selenium server first using the default firefox profile. Feel free to create a new profile.
+
+bin/codecept run acceptance
