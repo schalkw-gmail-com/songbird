@@ -73,29 +73,6 @@ class User extends BaseUser
     }
 
     /**
-     * Set created
-     *
-     * @param DateTime $created
-     * @return Page
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
-
-        return $this;
-    }
-
-    /**
-     * Get created
-     *
-     * @return DateTime 
-     */
-    public function getCreated()
-    {
-        return $this->created;
-    }
-
-    /**
      * Set firstname
      *
      * @param string $firstname
@@ -150,5 +127,51 @@ class User extends BaseUser
             $this->password = $password;
         }
         return $this;
+    }
+
+    /**
+     * Set modified
+     *
+     * @param \DateTime $modified
+     * @return User
+     */
+    public function setModified($modified)
+    {
+        $this->modified = $modified;
+
+        return $this;
+    }
+
+    /**
+     * Get modified
+     *
+     * @return \DateTime 
+     */
+    public function getModified()
+    {
+        return $this->modified;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return User
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
     }
 }
