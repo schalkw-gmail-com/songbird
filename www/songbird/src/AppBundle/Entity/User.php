@@ -69,7 +69,15 @@ class User extends BaseUser
         if ($this->getCreated() == null) {
             $this->setCreated(new \DateTime('now'));
         }
-        $this->created = new \DateTime();
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function preUpdate()
+    {
+        // update the modified time
+        $this->setModified(new \DateTime());
     }
 
     /**
