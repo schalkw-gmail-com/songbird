@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Entity\UserRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class User extends BaseUser
 {
@@ -25,17 +26,26 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="firstname", type="string", length=255)
+     * @ORM\Column(name="firstname", type="string", length=255, nullable=true)
      */
     private $firstname;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="lastname", type="string", length=255)
+     * @ORM\Column(name="lastname", type="string", length=255, nullable=true)
      */
     private $lastname;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $modified;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $created;
 
     /**
      * Get id
@@ -45,6 +55,44 @@ class User extends BaseUser
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function prePersist()
+    {
+        // update the modified time
+        $this->setModified(new \DateTime());
+
+        // for newly created entries
+        if ($this->getCreated() == null) {
+            $this->setCreated(new \DateTime('now'));
+        }
+        $this->created = new \DateTime();
+    }
+
+    /**
+     * Set created
+     *
+     * @param DateTime $created
+     * @return Page
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
     }
 
     /**
@@ -91,5 +139,16 @@ class User extends BaseUser
     public function getLastname()
     {
         return $this->lastname;
+    }
+
+    /**
+     * Override parent's method. Don't set passwd if its null.
+     */
+    public function setPassword($password)
+    {
+        if ($password) {
+            $this->password = $password;
+        }
+        return $this;
     }
 }
