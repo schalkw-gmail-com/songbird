@@ -18,12 +18,12 @@
         "sensio/distribution-bundle": "4.0.0",
         "sensio/framework-extra-bundle": "3.0.9",
         "incenteev/composer-parameter-handler": "2.1.1",
-        "friendsofsymfony/user-bundle": "~2.0@dev",
-        "doctrine/doctrine-fixtures-bundle": "2.2.0"
+        "friendsofsymfony/user-bundle": "~2.0@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "2.5.3",
-	"codeception/codeception": "2.1.1"
+	"codeception/codeception": "2.1.1",
+        "doctrine/doctrine-fixtures-bundle": "2.2.0"
     },
     "scripts": {
         "post-root-package-install": [
