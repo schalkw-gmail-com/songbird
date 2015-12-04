@@ -7,6 +7,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use FOS\UserBundle\Model\UserManagerInterface;
 
 class UserAdmin extends Admin
 {
@@ -135,5 +136,18 @@ class UserAdmin extends Admin
             ->add('modified')
             ->add('created')
         ;
+    }
+
+    public function setUserManager(UserManagerInterface $userManager)
+    {
+        $this->userManager = $userManager;
+    }
+
+    /**
+     * @return UserManagerInterface
+     */
+    public function getUserManager()
+    {
+        return $this->userManager;
     }
 }
