@@ -11,35 +11,28 @@ use FOS\UserBundle\Model\UserManagerInterface;
 
 class UserAdmin extends Admin
 {
+    private $userManager;
+
     /**
      * @param DatagridMapper $datagridMapper
      */
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('username')
-            ->add('usernameCanonical')
-            ->add('email')
-            ->add('emailCanonical')
-            ->add('enabled')
-            ->add('salt')
-            ->add('password')
-            ->add('lastLogin')
-            ->add('locked')
-            ->add('expired')
-            ->add('expiresAt')
-            ->add('confirmationToken')
-            ->add('passwordRequestedAt')
-            ->add('roles')
-            ->add('credentialsExpired')
-            ->add('credentialsExpireAt')
             ->add('id')
+            ->add('username')
+            ->add('email')
             ->add('firstname')
             ->add('lastname')
+            ->add('enabled')
+            ->add('lastLogin')
+            ->add('locked')
+            ->add('roles')
             ->add('modified')
             ->add('created')
         ;
     }
+
 
     /**
      * @param ListMapper $listMapper
@@ -47,27 +40,15 @@ class UserAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('username')
-            ->add('usernameCanonical')
-            ->add('email')
-            ->add('emailCanonical')
-            ->add('enabled')
-            ->add('salt')
-            ->add('password')
-            ->add('lastLogin')
-            ->add('locked')
-            ->add('expired')
-            ->add('expiresAt')
-            ->add('confirmationToken')
-            ->add('passwordRequestedAt')
-            ->add('roles')
-            ->add('credentialsExpired')
-            ->add('credentialsExpireAt')
             ->add('id')
             ->add('firstname')
             ->add('lastname')
+            ->add('username')
+            ->add('email')
+            ->add('enabled')
+            ->add('locked')
+            ->add('roles')
             ->add('modified')
-            ->add('created')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -83,30 +64,33 @@ class UserAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
+        // if its an edit route, make password non-compulsory
+        $passwordRequired = (preg_match('/_edit$/', $this->getRequest()->get('_route'))) ? false : true;
+
         $formMapper
-            ->add('username')
-            ->add('usernameCanonical')
-            ->add('email')
-            ->add('emailCanonical')
-            ->add('enabled')
-            ->add('salt')
-            ->add('password')
-            ->add('lastLogin')
-            ->add('locked')
-            ->add('expired')
-            ->add('expiresAt')
-            ->add('confirmationToken')
-            ->add('passwordRequestedAt')
-            ->add('roles')
-            ->add('credentialsExpired')
-            ->add('credentialsExpireAt')
-            ->add('id')
             ->add('firstname')
             ->add('lastname')
-            ->add('modified')
-            ->add('created')
+            ->add('username')
+            ->add('email')
+            ->add('enabled', 'checkbox', array(
+                'label' => 'Account Enabled',
+                'required' => false
+                ))
+            ->add('locked', 'checkbox', array(
+                'label' => 'Account Locked',
+                'required' => false
+                ))
+            ->add('plainPassword', 'repeated', array(
+                    'type' => 'password',
+                    'invalid_message' => 'The password fields must match.',
+                    'required' => $passwordRequired,
+                    'first_options'  => array('label' => 'Password'),
+                    'second_options'=> array('label' => 'Repeat Password'),
+                ))
+           ->add('roles')
         ;
     }
+
 
     /**
      * @param ShowMapper $showMapper
@@ -114,30 +98,26 @@ class UserAdmin extends Admin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('username')
-            ->add('usernameCanonical')
-            ->add('email')
-            ->add('emailCanonical')
-            ->add('enabled')
-            ->add('salt')
-            ->add('password')
-            ->add('lastLogin')
-            ->add('locked')
-            ->add('expired')
-            ->add('expiresAt')
-            ->add('confirmationToken')
-            ->add('passwordRequestedAt')
-            ->add('roles')
-            ->add('credentialsExpired')
-            ->add('credentialsExpireAt')
-            ->add('id')
             ->add('firstname')
             ->add('lastname')
-            ->add('modified')
-            ->add('created')
-        ;
+            ->add('username')
+            ->add('email')
+            ->add('enabled')
+            ->add('lastLogin')
+            ->add('locked')
+            ->add('roles');
     }
 
+    public function preUpdate($user)
+    {
+        $this->getUserManager()->updateCanonicalFields($user);
+        $this->getUserManager()->updatePassword($user);
+    }
+
+    /**
+     * setUserManager
+     * @param UserManagerInterface $userManager fosuserbundle user manager
+     */
     public function setUserManager(UserManagerInterface $userManager)
     {
         $this->userManager = $userManager;
