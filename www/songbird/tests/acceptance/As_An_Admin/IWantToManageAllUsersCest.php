@@ -90,12 +90,10 @@ class IWantToManageAllUsersCest
         $I->canSee('test4@songbird.dev');
         
         // now delete user
-         // go to user listing page
-        $I->amOnPage('/admin/app/user/list');
         // click on edit button
         $I->click('(//td[@class="sonata-ba-list-field sonata-ba-list-field-actions"])[5]/div/a[3]');
         // check we are on the right url
-        $I->canSeeInCurrentUrl('/app/user/5/delete');
+        $I->canSeeInCurrentUrl('/admin/app/user/5/delete');
         // click on delete button
         $I->click('//button[@type="submit"]');
         // go back to list page
