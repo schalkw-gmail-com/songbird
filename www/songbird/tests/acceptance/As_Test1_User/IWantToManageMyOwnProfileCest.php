@@ -1,6 +1,8 @@
 <?php
 namespace As_Test1_User;
 use \AcceptanceTester;
+use \Common;
+
 
 class IWantToManageMyOwnProfileCest
 {
@@ -12,8 +14,8 @@ class IWantToManageMyOwnProfileCest
     {
     }
 
-    // tests
-    public function tryToTest(AcceptanceTester $I)
+    protected function login(AcceptanceTester $I)
     {
+        Common::login($I, TEST1_USERNAME, TEST1_PASSWORD);
     }
 }

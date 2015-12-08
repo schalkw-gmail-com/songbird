@@ -16,7 +16,6 @@ class IWantToManageAllUsersCest
     protected function login(AcceptanceTester $I)
     {
         Common::login($I, ADMIN_USERNAME, ADMIN_PASSWORD);
-        $I->canSeeInCurrentUrl('/admin/dashboard');
     }
 
     /**
