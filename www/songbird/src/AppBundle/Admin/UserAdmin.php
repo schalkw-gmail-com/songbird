@@ -68,27 +68,32 @@ class UserAdmin extends Admin
         $passwordRequired = (preg_match('/_edit$/', $this->getRequest()->get('_route'))) ? false : true;
 
         $formMapper
-            ->add('firstname')
-            ->add('lastname')
             ->add('username')
             ->add('email')
-            ->add('enabled', 'checkbox', array(
-                'label' => 'Account Enabled',
-                'required' => false
-                ))
-            ->add('locked', 'checkbox', array(
-                'label' => 'Account Locked',
-                'required' => false
-                ))
+            ->add('firstname')
+            ->add('lastname')
             ->add('plainPassword', 'repeated', array(
                     'type' => 'password',
                     'invalid_message' => 'The password fields must match.',
                     'required' => $passwordRequired,
                     'first_options'  => array('label' => 'Password'),
-                    'second_options'=> array('label' => 'Repeat Password'),
+                    'second_options' => array('label' => 'Repeat Password'),
                 ))
-           ->add('roles')
         ;
+        // allow these fields if super admin
+        if ($this->isGranted('ROLE_SUPER_ADMIN')) {
+            $formMapper
+                ->add('enabled', 'checkbox', array(
+                    'label' => 'Account Enabled',
+                    'required' => false
+                    ))
+                ->add('locked', 'checkbox', array(
+                    'label' => 'Account Locked',
+                    'required' => false
+                    ))
+                ->add('roles')
+            ;
+        }
     }
 
 
