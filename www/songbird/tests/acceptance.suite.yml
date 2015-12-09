@@ -14,5 +14,7 @@ modules:
             capabilities:
                 unexpectedAlertBehaviour: 'accept'
                 webStorageEnabled: true
-
+        - MailCatcher:
+            url: 'http://songbird.dev'
+            port: '1080'
         - \Helper\Acceptance
