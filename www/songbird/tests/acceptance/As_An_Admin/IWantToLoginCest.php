@@ -32,6 +32,7 @@ class IWantToLoginCest
      */
     public function seeMyDashboardContent(AcceptanceTester $I) {
         $I->canSeeInCurrentUrl('/admin/dashboard'); 
+        $I->canSee('admin','//h3[@class="box-title"]');
     }
 
     /**
