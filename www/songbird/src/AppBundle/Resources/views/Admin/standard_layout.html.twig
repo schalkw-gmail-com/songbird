@@ -31,8 +31,8 @@
 {% block side_bar_after_nav %}
     <ul>
         {% if is_granted('ROLE_SUPER_ADMIN') %}
-        <li><a href="{{ path('admin_songbird_user_user_list') }}">User Management</a></li>
+        <li><a href="{{ path('admin_app_user_list') }}">User Management</a></li>
         {% endif %}
-        <li><a href="{{ path('admin_songbird_user_user_show', {'id' : app.user.id}) }}">My Profile</a></li>
+        <li><a href="{{ path('admin_app_user_show', {'id' : app.user.id}) }}">My Profile</a></li>
     </ul>
 {% endblock %}
