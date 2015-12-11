@@ -95,3 +95,6 @@ sonata_block:
 sonata_admin:
     security:
         handler: sonata.admin.security.handler.role
+    templates:
+        layout: AppBundle:Admin:standard_layout.html.twig
+
