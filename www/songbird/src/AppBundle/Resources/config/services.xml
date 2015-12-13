@@ -28,6 +28,11 @@
        		<tag name="kernel.event_listener" event="fos_user.resetting.reset.success" method="redirectUserAfterPasswordReset" />
         	<argument type="service" id="service_container" />
       </service>
-	
+  
+      <service id="sonata.block.service.dashboard.welcome" class="AppBundle\Block\DashboardWelcomeBlockService">
+            <tag name="sonata.block" />
+            <argument>Dashboard Welcome</argument>
+            <argument type="service" id="templating" />
+      </service>
 	</services>
 </container>

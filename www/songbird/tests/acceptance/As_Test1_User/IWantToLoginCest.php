@@ -31,7 +31,9 @@ class IWantToLoginCest
      * @before login
      */
     public function seeMyDashboardContent(AcceptanceTester $I) {
-        $I->canSeeInCurrentUrl('/admin/dashboard'); 
+        $I->canSeeInCurrentUrl('/admin/dashboard');
+        $I->CantSee('User Management'); 
+        $I->CanSee('Dear Test1'); 
     }
 
     /**
@@ -39,9 +41,10 @@ class IWantToLoginCest
      * @before login
      */
     public function logoutSuccessfully(AcceptanceTester $I) {
-        $I->amOnPage('/logout');
+        $I->click('(//a[@data-toggle="dropdown"])[1]');
+        $I->click('Logout');
         // now user should be redirected to home page
-        $I->canSeeInCurrentUrl('/');
+        $I->seeCurrentUrlEquals('/app_dev.php/');
     }
 
     /**

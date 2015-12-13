@@ -24,7 +24,9 @@ class IWantToManageAllUsersCest
      */
     public function listAllProfiles(AcceptanceTester $I)
     {
-        $I->amOnPage('/admin/app/user/list');
+        $I->click('User Management');
+        // go to user listing page
+        $I->canSeeInCurrentUrl('/admin/app/user/list');
         $I->canSeeNumberOfElements('//table[@class="table table-bordered table-striped"]/tbody/tr',4);
     }
 
@@ -34,13 +36,12 @@ class IWantToManageAllUsersCest
      */
     public function showTest3User(AcceptanceTester $I)
     {
-        // go to user listing page
-        $I->amOnPage('/admin/app/user/list');
-        // cick on show button
+        $I->click('User Management');
         $I->click('(//td[@class="sonata-ba-list-field sonata-ba-list-field-actions"])[4]/div/a[1]');
         $I->waitForText('test3@songbird.dev');
         $I->canSee('test3@songbird.dev');
         $I->canSeeInCurrentUrl('/user/4/show');
+
     }
 
     /**
@@ -49,12 +50,13 @@ class IWantToManageAllUsersCest
      */
     public function editTest3User(AcceptanceTester $I)
     {
-        // go to user listing page
-        $I->amOnPage('/admin/app/user/list');
+        $I->click('User Management');
+
         // click on edit button
         $I->click('(//td[@class="sonata-ba-list-field sonata-ba-list-field-actions"])[4]/div/a[2]');
+        
         // check we are on the right url
-        $I->canSeeInCurrentUrl('/app/user/4/edit');
+        $I->canSeeInCurrentUrl('/user/4/edit');
         $I->fillField('//input[@value="test3 Lastname"]', 'lastname3 updated');
         // update
         $I->click('btn_update_and_edit');
@@ -75,8 +77,9 @@ class IWantToManageAllUsersCest
      */
     public function createAndDeleteNewUser(AcceptanceTester $I)
     {
-        // go to create page and fill in form
-        $I->amOnPage('/admin/app/user/create');
+        $I->click('User Management');
+        $I->click('(//a[@data-toggle="dropdown"])[2]');
+        $I->click('Add new');
         $I->fillField('//input[contains(@id, "_username")]', 'test4');
         $I->fillField('//input[contains(@id, "_email")]', 'test4@songbird.dev');
         $I->fillField('//input[contains(@id, "_plainPassword_first")]', 'test4');
@@ -84,20 +87,22 @@ class IWantToManageAllUsersCest
         // submit form
         $I->click('btn_create_and_edit');
         // go back to user list 
-        $I->amOnPage('/admin/app/user/list');
-        // i should see new test4 user created
+        $I->click('User Management');
+        // i should see new test3 user created
         $I->canSee('test4@songbird.dev');
-        
         // now delete user
+         // go to user listing page
+        $I->click('User Management');
         // click on edit button
         $I->click('(//td[@class="sonata-ba-list-field sonata-ba-list-field-actions"])[5]/div/a[3]');
         // check we are on the right url
-        $I->canSeeInCurrentUrl('/admin/app/user/5/delete');
+        $I->canSeeInCurrentUrl('/user/5/delete');
         // click on delete button
         $I->click('//button[@type="submit"]');
         // go back to list page
-        $I->amOnPage('/admin/app/user/list');
-        // I can no longer see test4 user
+        $I->click('User Management');
+        // I can no longer see user 4
         $I->cantSee('test4@songbird.dev');
+
     }
 }

@@ -89,12 +89,18 @@ fos_user:
 sonata_block:
     default_contexts: [cms]
     blocks:
+        sonata.block.service.dashboard.welcome:
         # Enable the SonataAdminBundle block
-        sonata.admin.block.admin_list:
-            contexts:   [admin]
+        # sonata.admin.block.admin_list:
+        #     contexts:   [admin]
 sonata_admin:
     security:
         handler: sonata.admin.security.handler.role
     templates:
         layout: AppBundle:Admin:standard_layout.html.twig
+    dashboard: 
+        blocks:
+            -   position: left
+                type: sonata.block.service.dashboard.welcome
+
 
