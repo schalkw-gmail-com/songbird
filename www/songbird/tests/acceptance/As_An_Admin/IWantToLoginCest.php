@@ -41,8 +41,7 @@ class IWantToLoginCest
      * @before login
      */
     public function logoutSuccessfully(AcceptanceTester $I) {
-        $I->click('(//a[@data-toggle="dropdown"])[1]');
-        $I->click('Logout');
+        $I->click('Log out');
         // now user should be redirected to home page
         $I->seeCurrentUrlEquals('/app_dev.php/');
     }

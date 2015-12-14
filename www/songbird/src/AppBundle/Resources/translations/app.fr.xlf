@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>dashboard.welcome.title</source>
+                <target>Bienvenue à SongBird CMS</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>admin.link.user_management</source>
+                <target>Gestion des utilisateurs</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>admin.link.my_profile</source>
+                <target>Mon profil</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

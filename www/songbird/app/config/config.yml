@@ -7,6 +7,7 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    supported_lang: [ 'en', 'fr' ]
 
 framework:
     #esi:             ~
@@ -35,6 +36,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    globals:
+        supported_lang: %supported_lang%
 
 # Assetic Configuration
 assetic:
@@ -102,5 +105,6 @@ sonata_admin:
         blocks:
             -   position: left
                 type: sonata.block.service.dashboard.welcome
-
+    options:
+        use_select2: false # disable select2
 

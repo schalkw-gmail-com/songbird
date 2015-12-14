@@ -5,34 +5,39 @@
 
 	<services>
 	    <service id="songbird.admin.user" class="AppBundle\Admin\UserAdmin">
-			<tag name="sonata.admin" manager_type="orm" group="admin" label="User"/>
-			<argument>null</argument>
-			<argument>AppBundle\Entity\User</argument>
-			<argument>AppBundle:UserAdmin</argument>
-			<call method="setUserManager">
-			    <argument type="service" id="fos_user.user_manager" />
-			</call>
-		</service>
+  			<tag name="sonata.admin" manager_type="orm" group="admin" label="User"/>
+  			<argument>null</argument>
+  			<argument>AppBundle\Entity\User</argument>
+  			<argument>AppBundle:UserAdmin</argument>
+  			<call method="setUserManager">
+  			    <argument type="service" id="fos_user.user_manager" />
+  			</call>
+      </service>
 
 	    <service id="songbird.admin.user.show.filter" class="AppBundle\Event\UserCustomAction">
-       		<tag name="kernel.event_listener" event="sonata.admin.event.configure.show" method="sonataAdminCheckUserRights" />
-       		<argument type="service" id="service_container" />
+     		<tag name="kernel.event_listener" event="sonata.admin.event.configure.show" method="sonataAdminCheckUserRights" />
+     		<argument type="service" id="service_container" />
    		</service>
    		
    		<service id="songbird.admin.user.form.filter" class="AppBundle\Event\UserCustomAction">
-      		<tag name="kernel.event_listener" event="sonata.admin.event.configure.form" method="sonataAdminCheckUserRights" />
-      		<argument type="service" id="service_container" />
+    		<tag name="kernel.event_listener" event="sonata.admin.event.configure.form" method="sonataAdminCheckUserRights" />
+    		<argument type="service" id="service_container" />
    		</service>
    		
    		<service id="songbird.password.reset.success" class="AppBundle\Event\UserCustomAction">
-       		<tag name="kernel.event_listener" event="fos_user.resetting.reset.success" method="redirectUserAfterPasswordReset" />
-        	<argument type="service" id="service_container" />
+     		<tag name="kernel.event_listener" event="fos_user.resetting.reset.success" method="redirectUserAfterPasswordReset" />
+      	<argument type="service" id="service_container" />
       </service>
   
       <service id="sonata.block.service.dashboard.welcome" class="AppBundle\Block\DashboardWelcomeBlockService">
-            <tag name="sonata.block" />
-            <argument>Dashboard Welcome</argument>
-            <argument type="service" id="templating" />
+        <tag name="sonata.block" />
+        <argument>Dashboard Welcome</argument>
+        <argument type="service" id="templating" />
+      </service>
+
+      <service id="app.request.listener" class="AppBundle\Event\LocaleListener">
+        <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest" priority="17"/>
+        <argument>%kernel.default_locale%</argument>
       </service>
 	</services>
 </container>

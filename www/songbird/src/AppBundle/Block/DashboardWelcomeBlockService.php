@@ -34,7 +34,7 @@ class DashboardWelcomeBlockService extends BaseBlockService
     public function setDefaultSettings(OptionsResolverInterface $resolver)
 	{
 	    $resolver->setDefaults(array(
-	        'heading'    => 'Welcome to SongBird CMS',
+	        'heading'    => 'dashboard.welcome.title',
 	        'template' => 'AppBundle:Block:dashboard_welcome_block_service.html.twig',
 	    ));
 	}

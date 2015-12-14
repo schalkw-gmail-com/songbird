@@ -78,7 +78,7 @@ class IWantToManageAllUsersCest
     public function createAndDeleteNewUser(AcceptanceTester $I)
     {
         $I->click('User Management');
-        $I->click('(//a[@data-toggle="dropdown"])[2]');
+        $I->click('(//a[@data-toggle="dropdown"])[1]');
         $I->click('Add new');
         $I->fillField('//input[contains(@id, "_username")]', 'test4');
         $I->fillField('//input[contains(@id, "_email")]', 'test4@songbird.dev');
@@ -91,9 +91,7 @@ class IWantToManageAllUsersCest
         // i should see new test3 user created
         $I->canSee('test4@songbird.dev');
         // now delete user
-         // go to user listing page
-        $I->click('User Management');
-        // click on edit button
+        // click on delete button
         $I->click('(//td[@class="sonata-ba-list-field sonata-ba-list-field-actions"])[5]/div/a[3]');
         // check we are on the right url
         $I->canSeeInCurrentUrl('/user/5/delete');

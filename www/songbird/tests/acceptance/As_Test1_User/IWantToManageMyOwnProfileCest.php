@@ -38,7 +38,7 @@ class IWantToManageMyOwnProfileCest
     public function hidUneditableFields(AcceptanceTester $I)
     {
         $I->click('My Profile');
-        $I->click('(//a[@data-toggle="dropdown"])[2]');
+        $I->click('(//a[@data-toggle="dropdown"])[1]');
         $I->click('Edit');
         $I->cantSee('Enabled');
         $I->cantSee('Locked');
@@ -53,7 +53,7 @@ class IWantToManageMyOwnProfileCest
     public function updateFirstnameOnly(AcceptanceTester $I)
     {
         $I->click('My Profile');
-        $I->click('(//a[@data-toggle="dropdown"])[2]');
+        $I->click('(//a[@data-toggle="dropdown"])[1]');
         $I->click('Edit');
         $I->fillField('//input[@value="test1 Lastname"]', 'lastname1 updated');
         // update
@@ -68,7 +68,7 @@ class IWantToManageMyOwnProfileCest
 
         // db has been changed. now revert it back
         $I->click('My Profile');
-        $I->click('(//a[@data-toggle="dropdown"])[2]');
+        $I->click('(//a[@data-toggle="dropdown"])[1]');
         $I->click('Edit');
         $I->fillField('//input[@value="lastname1 updated"]', 'test1 Lastname'); 
         $I->click('btn_update_and_edit');
@@ -83,7 +83,7 @@ class IWantToManageMyOwnProfileCest
     {
 
         $I->click('My Profile');
-        $I->click('(//a[@data-toggle="dropdown"])[2]');
+        $I->click('(//a[@data-toggle="dropdown"])[1]');
         $I->click('Edit');
         $I->fillField('//input[contains(@id, "_plainPassword_first")]', '123');
         $I->fillField('//input[contains(@id, "_plainPassword_second")]', '123');
@@ -95,7 +95,7 @@ class IWantToManageMyOwnProfileCest
         $I->canSeeInCurrentUrl('/admin/dashboard');
 
         $I->click('My Profile');
-        $I->click('(//a[@data-toggle="dropdown"])[2]');
+        $I->click('(//a[@data-toggle="dropdown"])[1]');
         $I->click('Edit');
         $I->fillField('//input[contains(@id, "_plainPassword_first")]', TEST1_PASSWORD);
         $I->fillField('//input[contains(@id, "_plainPassword_second")]', TEST1_PASSWORD);

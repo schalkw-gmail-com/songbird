@@ -2,7 +2,7 @@
 
 {% block block %}
 
-<h3 class="sonata-title">{{ settings.heading }}</h3>
+<h3 class="sonata-title">{{ settings.heading | trans({}, 'app') }}</h3>
 <p>
 Dear {{ app.user.firstname }} {{ app.user.lastname }},
 </p>

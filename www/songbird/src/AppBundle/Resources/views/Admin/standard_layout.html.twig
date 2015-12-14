@@ -13,26 +13,42 @@
     {% endspaceless %}
 {% endblock %}
 
+{% set urlPrefix = (app.environment == 'dev') ? '/app_dev.php/' : '/' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+    $(function() {
+        // select the box based on locale
+        $('#lang').val('{{ app.request.getLocale() }}');
+        // redirect user if user change locale
+        $('#lang').change(function() {
+            window.location='{{ urlPrefix }}'+$(this).val()+'/locale';
+        });
+    });
+    </script>
+{% endblock %}
+
 {% block sonata_top_nav_menu %}
     <div class="navbar-right">
-        <ul class="nav navbar-nav">
-            <li class="dropdown user-menu">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
-                </ul>
-            </li>
-        </ul>
+        <div class="nav navbar-nav topmenu">        
+            <select id="lang" name="lang">
+                {% for lang in supported_lang %}
+                    <option value="{{ lang }}">{{ lang }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="nav navbar-nav topmenu">
+            <a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a>
+        </div>     
     </div>
 {% endblock %}
 
 {% block side_bar_after_nav %}
     <ul>
         {% if is_granted('ROLE_SUPER_ADMIN') %}
-        <li><a href="{{ path('admin_app_user_list') }}">User Management</a></li>
+        <li><a href="{{ path('admin_app_user_list') }}">{{ 'admin.link.user_management' | trans({}, 'app') }}</a></li>
         {% endif %}
-        <li><a href="{{ path('admin_app_user_show', {'id' : app.user.id}) }}">My Profile</a></li>
+        <li><a href="{{ path('admin_app_user_show', {'id' : app.user.id}) }}">{{ 'admin.link.my_profile' | trans({}, 'app') }}</a></li>
     </ul>
 {% endblock %}
