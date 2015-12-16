@@ -1,6 +1,7 @@
 <?php
 namespace As_Test1_User;
 use \AcceptanceTester;
+use \Common;
 
 class IDontWantToManageAllMediaCest
 {
@@ -12,8 +13,38 @@ class IDontWantToManageAllMediaCest
     {
     }
 
-    // tests
-    public function tryToTest(AcceptanceTester $I)
+    protected function login(AcceptanceTester $I)
     {
+        Common::login($I, TEST1_USERNAME, TEST1_PASSWORD);
+    }
+
+    /**
+     * Scenario 4.41
+     * @before login
+     */
+    public function viewMediaList(AcceptanceTester $I)
+    {
+        $I->amOnPage('/admin/app/media/list');
+        $I->canSee('Access Denied');
+    }
+
+    /**
+     * Scenario 4.42
+     * @before login
+     */
+    public function showFile1(AcceptanceTester $I)
+    {
+        $I->amOnPage('/admin/app/media/3/show');
+        $I->canSee('Access Denied');
+    }
+
+    /**
+     * Scenario 4.43
+     * @before login
+     */
+    public function EditFile3(AcceptanceTester $I)
+    {
+        $I->amOnPage('/admin/app/media/3/edit');
+        $I->canSee('Access Denied');
     }
 }
