@@ -20,7 +20,8 @@
         "incenteev/composer-parameter-handler": "2.1.1",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "sonata-project/doctrine-orm-admin-bundle": "2.3.2",
-        "sonata-project/admin-bundle": "2.3.3"
+        "sonata-project/admin-bundle": "2.3.3",
+        "sonata-project/media-bundle": "2.3.2"
     },
     "require-dev": {
         "sensio/generator-bundle": "2.5.3",

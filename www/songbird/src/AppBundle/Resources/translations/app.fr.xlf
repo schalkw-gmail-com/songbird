@@ -14,6 +14,22 @@
                 <source>admin.link.my_profile</source>
                 <target>Mon profil</target>
             </trans-unit>
+            <trans-unit id="4">
+                <source>admin.link.media_management</source>
+                <target>la gestion des médias</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>admin.link.gallery_management</source>
+                <target>la gestion de la galerie</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>admin.title.galleries</source>
+                <target>galeries</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>admin.title.options</source>
+                <target>les options</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

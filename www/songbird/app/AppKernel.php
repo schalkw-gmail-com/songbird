@@ -22,9 +22,16 @@ class AppKernel extends Kernel
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
+            new Sonata\MediaBundle\SonataMediaBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
+            new Sonata\IntlBundle\SonataIntlBundle(),
+            new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
+            // my bundles
             new AppBundle\AppBundle(),
             // init my fosuser
             new AppBundle\User(),
+            // sonata media bundle
+            new AppBundle\Media()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
