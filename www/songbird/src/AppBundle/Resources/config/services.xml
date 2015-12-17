@@ -35,7 +35,7 @@
         <argument type="service" id="templating" />
       </service>
 
-      <service id="app.request.listener" class="AppBundle\Event\LocaleListener">
+      <service id="app.locale.listener" class="AppBundle\Event\LocaleListener">
         <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest" priority="17"/>
         <argument>%kernel.default_locale%</argument>
       </service>
