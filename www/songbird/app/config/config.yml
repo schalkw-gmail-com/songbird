@@ -8,6 +8,7 @@ imports:
 parameters:
     locale: en
     supported_lang: [ 'en', 'fr' ]
+    admin_path: admin
 
 framework:
     #esi:             ~

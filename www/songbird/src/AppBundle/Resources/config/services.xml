@@ -35,9 +35,21 @@
         <argument type="service" id="templating" />
       </service>
 
-      <service id="app.request.listener" class="AppBundle\Event\LocaleListener">
+      <service id="app.locale.listener" class="AppBundle\Event\LocaleListener">
         <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest" priority="17"/>
         <argument>%kernel.default_locale%</argument>
+      </service>
+      
+      <service id="app.log_user_activity" class="AppBundle\Event\UserCustomAction">
+        <tag name="kernel.event_listener" event="kernel.request" method="userLog" />
+        <argument type="service" id="service_container" />
+    </service>
+
+      <service id="app.admin.user.log" class="AppBundle\Admin\UserLogAdmin">
+        <tag name="sonata.admin" manager_type="orm" group="admin" label="User"/>
+        <argument>null</argument>
+        <argument>AppBundle\Entity\UserLog</argument>
+        <argument>AppBundle:UserLogAdmin</argument>
       </service>
 	</services>
 </container>

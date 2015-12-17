@@ -30,6 +30,10 @@
                 <source>admin.title.options</source>
                 <target>Options</target>
             </trans-unit>
+            <trans-unit id="8">
+                <source>admin.link.user_log</source>
+                <target>User Log</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

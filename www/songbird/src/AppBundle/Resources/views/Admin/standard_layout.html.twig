@@ -50,6 +50,7 @@
         <li><a href="{{ path('admin_app_user_list') }}">{{ 'admin.link.user_management' | trans({}, 'app') }}</a></li>
         <li><a href="{{ path('admin_app_gallery_list') }}">{{ 'admin.link.gallery_management' | trans({}, 'app') }}</a></li>
         <li><a href="{{ path('admin_app_media_list') }}">{{ 'admin.link.media_management' | trans({}, 'app') }}</a></li>
+        <li><a href="{{ path('admin_app_userlog_list') }}">{{ 'admin.link.user_log' | trans({}, 'app') }}</a></li>
         {% endif %}
 
         <li><a href="{{ path('admin_app_user_show', {'id' : app.user.id}) }}">{{ 'admin.link.my_profile' | trans({}, 'app') }}</a></li>

@@ -32,8 +32,8 @@ class IWantToLoginCest
      */
     public function seeMyDashboardContent(AcceptanceTester $I) {
         $I->canSeeInCurrentUrl('/admin/dashboard');
-        $I->CanSee('User Management'); 
-        $I->CanSee('Dear admin');  
+        $I->canSee('User Management'); 
+        $I->canSee('Dear admin');  
     }
 
     /**
