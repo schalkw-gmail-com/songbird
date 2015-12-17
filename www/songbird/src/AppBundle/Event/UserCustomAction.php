@@ -76,7 +76,7 @@ class UserCustomAction
             $em = $this->container->get('doctrine.orm.entity_manager');
             $log = new UserLog();
             $log->setData(json_encode($request->request->all()));
-            $log->setUser($this->container->get('security.token_storage')->getToken()->getUser());
+            $log->setUsername($this->container->get('security.token_storage')->getToken()->getUser()->getUsername());
             $log->setCurrentUrl($current_url);
             $log->setReferrer($request->server->get('HTTP_REFERER'));
             $log->setAction($request->getMethod());

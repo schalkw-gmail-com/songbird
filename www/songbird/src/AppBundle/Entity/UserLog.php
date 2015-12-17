@@ -22,12 +22,11 @@ class UserLog
     private $id;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
+     * @ORM\Column(name="username", type="text")
      */
-    private $user;
+    private $username;
     
     /**
      * @var string
@@ -193,12 +192,12 @@ class UserLog
     /**
      * Set user
      *
-     * @param \AppBundle\Entity\User $user
+     * @param string $user
      * @return UserLog
      */
-    public function setUser(\AppBundle\Entity\User $user)
+    public function setUsername($username)
     {
-        $this->user = $user;
+        $this->username = $username;
 
         return $this;
     }
@@ -206,10 +205,10 @@ class UserLog
     /**
      * Get user
      *
-     * @return \AppBundle\Entity\User 
+     * @return string
      */
-    public function getUser()
+    public function getUsername()
     {
-        return $this->user;
+        return $this->username;
     }
 }

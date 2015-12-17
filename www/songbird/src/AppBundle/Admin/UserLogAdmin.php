@@ -17,6 +17,7 @@ class UserLogAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
+            ->add('username')
             ->add('current_url')
             ->add('referrer')
             ->add('action')
@@ -32,6 +33,7 @@ class UserLogAdmin extends Admin
     {
         $listMapper
             ->add('id')
+            ->add('username')
             ->add('current_url')
             ->add('referrer')
             ->add('action')
@@ -54,6 +56,7 @@ class UserLogAdmin extends Admin
     {
         $formMapper
             ->add('id')
+            ->add('username')
             ->add('current_url')
             ->add('referrer')
             ->add('action')
@@ -69,11 +72,21 @@ class UserLogAdmin extends Admin
     {
         $showMapper
             ->add('id')
+            ->add('username')
             ->add('current_url')
             ->add('referrer')
             ->add('action')
             ->add('data')
             ->add('created')
         ;
+    }
+
+    public function createQuery($context = 'list')
+    {
+
+        $query = parent::createQuery($context);
+        $query->orderby($query->getRootAliases()[0].'.id', 'desc');
+
+        return $query;
     }
 }

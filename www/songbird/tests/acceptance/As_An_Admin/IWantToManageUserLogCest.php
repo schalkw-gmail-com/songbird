@@ -25,7 +25,7 @@ class IWantToAccessUserLogCest
     public function listUserLog(AcceptanceTester $I) {
         $I->click('User Log');
         $I->canSee('User Log'); 
-        $I->canSee('/admin/dashboard');  
+        $I->canSeeNumberOfElements('//table[@class="table table-bordered table-striped"]/tbody/tr',2); 
     }
 
     /**
@@ -35,7 +35,7 @@ class IWantToAccessUserLogCest
     public function showUserLog1(AcceptanceTester $I) {
         $I->click('User Log');
         $I->click('(//a[@title="Show"])[1]');
-        $I->canSee('/login');
+        $I->canSee('/admin');
     }
 
     /**
