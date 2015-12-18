@@ -235,10 +235,10 @@ xdebug:
         xdebug.remote_handler: dbgp
         xdebug.remote_port: '9000'
 blackfire:
-    install: '1'
+    install: '0'
     settings:
-        server_id: 
-        server_token: 
+        server_id: your_id
+        server_token: your_token
         agent:
             http_proxy: ''
             https_proxy: ''
