@@ -1,5 +1,6 @@
 /web/bundles/
 /web/uploads/
+/web/minified/
 /app/bootstrap.php.cache
 /app/cache/*
 /app/config/parameters.yml
@@ -12,5 +13,6 @@
 /bin/
 /composer.phar
 /composer.lock
-
+/node_modules
+/bower_components
 tests/_output/*

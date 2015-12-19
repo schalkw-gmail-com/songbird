@@ -1,5 +1,5 @@
 #!/bin/bash
 
-scripts/resetapp
+scripts/resetapp -c
 # start selenium server first using the default firefox profile. Feel free to create a new profile.
 bin/codecept run acceptance $@

@@ -1,0 +1,22 @@
+{
+  "name": "songbird",
+  "description": "bower config",
+  "main": "index.js",
+  "authors": [
+    "bernard peh <bpeh@sitecritic.net>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/bernardpeh/songbird",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.6"
+  }
+}

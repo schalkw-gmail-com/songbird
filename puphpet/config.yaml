@@ -237,8 +237,8 @@ xdebug:
 blackfire:
     install: '1'
     settings:
-        server_id: your_id
-        server_token: your_token
+        server_id: ecd78558-42ce-477f-8f7c-c487b2e33242
+        server_token: d5a3d075b01a1f89c79ec83b18b22847479d440ec4e6059e82a0f59afb7b5b6a
         agent:
             http_proxy: ''
             https_proxy: ''
