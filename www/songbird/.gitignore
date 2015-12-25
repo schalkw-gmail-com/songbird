@@ -12,4 +12,4 @@
 /composer.phar
 /composer.lock
 
-tests/_output/*
+src/AppBundle/Tests/_output/*
