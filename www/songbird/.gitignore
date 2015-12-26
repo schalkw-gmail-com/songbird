@@ -15,5 +15,5 @@
 /composer.lock
 /node_modules
 /bower_components
-
 src/AppBundle/tests/_output/*
+src/Songbird/NestablePageBundle/tests/_output/*

@@ -1,0 +1,11 @@
+# Codeception Test Suite Configuration
+#
+# Suite for unit (internal) tests.
+
+class_name: UnitTester
+modules:
+    enabled:
+        - Doctrine2:
+            depends: Symfony2
+        - Asserts
+        - \SongbirdNestablePageBundle\Helper\Unit

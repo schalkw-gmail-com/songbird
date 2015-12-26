@@ -31,7 +31,8 @@ class AppKernel extends Kernel
             // init my fosuser
             new AppBundle\User(),
             // sonata media bundle
-            new AppBundle\Media()
+            new AppBundle\Media(),
+            new Songbird\NestablePageBundle\SongbirdNestablePageBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
