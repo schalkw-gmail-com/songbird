@@ -16,4 +16,4 @@
 /node_modules
 /bower_components
 
-src/AppBundle/Tests/_output/*
+src/AppBundle/tests/_output/*
