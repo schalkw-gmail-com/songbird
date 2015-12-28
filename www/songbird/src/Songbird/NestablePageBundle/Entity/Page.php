@@ -312,4 +312,13 @@ class Page
     {
         return $this->pageMetas;
     }
+    
+    /**
+     * convert object to string
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->slug;
+    }
 }

@@ -218,4 +218,13 @@ class PageMeta
     {
         return $this->page;
     }
+
+    /**
+     * convert object to string
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->title;
+    }
 }
