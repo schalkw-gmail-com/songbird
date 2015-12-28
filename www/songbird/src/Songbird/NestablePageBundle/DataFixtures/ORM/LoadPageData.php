@@ -1,15 +1,14 @@
 <?php
-namespace AppBundle\DataFixtures\ORM;
+namespace Songbird\NestablepageBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Songbird\NestablePageBundle\Entity\Page;
 use Songbird\NestablePageBundle\Entity\PageMeta;
 
-class LoadPageData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
+class LoadPageData extends AbstractFixture implements ContainerAwareInterface
 {
     
     /**
@@ -185,12 +184,4 @@ class LoadPageData extends AbstractFixture implements OrderedFixtureInterface, C
         $manager->flush();
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    public function getOrder()
-    {
-        // load page data
-        return 3;
-    }
 }

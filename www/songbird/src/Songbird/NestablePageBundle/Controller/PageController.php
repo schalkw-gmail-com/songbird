@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Songbird\NestablePageBundle\Entity\Page;
 use Songbird\NestablePageBundle\Form\PageType;
-
+use Symfony\Component\HttpFoundation\JsonResponse;
 /**
  * Page controller.
  *
@@ -36,6 +36,13 @@ class PageController extends Controller
         );
     }
 
+    /**
+     * reorder page
+     * 
+     * @Route("/reorder", name="page_reorder")
+     * @Method("POST")
+     * @Template()
+     */
     public function reorderAction()
     {
         $em = $this->getDoctrine()->getManager();

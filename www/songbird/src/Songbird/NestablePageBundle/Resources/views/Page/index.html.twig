@@ -2,7 +2,7 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <link href="{{ asset('bundles/SongbirdNestablePageBundle/styles.css') }}" rel="stylesheet" />
+    <link href="{{ asset('/bundles/songbirdnestablepage/css/styles.css') }}" rel="stylesheet" />
 {% endblock %}
 
 
@@ -30,7 +30,8 @@
 
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{ asset('bundles/SongbirdNestableBundle/js/jquery.nestable.js') }}"></script>
+    <script src="{{ asset('/bundles/songbirdnestablepage/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('/bundles/songbirdnestablepage/js/jquery.nestable.js') }}"></script>
     <script>
 
     $(function() {
