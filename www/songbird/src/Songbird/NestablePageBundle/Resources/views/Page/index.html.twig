@@ -1,49 +1,85 @@
 {% extends '::base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/SongbirdNestablePageBundle/styles.css') }}" rel="stylesheet" />
+{% endblock %}
+
+
 {% block body -%}
     <h1>Page list</h1>
+    <div>
+        <a href="{{ path('page_new') }}">
+            Create a new entry
+        </a>
+    </div>
+    
+    <div class="alert alert-dismissable" style="display:none">  
+    </div>
 
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Slug</th>
-                <th>Ispublished</th>
-                <th>Sequence</th>
-                <th>Modified</th>
-                <th>Created</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('page_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.slug }}</td>
-                <td>{{ entity.isPublished }}</td>
-                <td>{{ entity.sequence }}</td>
-                <td>{% if entity.modified %}{{ entity.modified|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if entity.created %}{{ entity.created|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('page_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('page_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <button type="button" onclick="$('.dd').nestable('expandAll')">Expand All</button>
+    <button type="button" onclick="$('.dd').nestable('collapseAll')">Collapse All</button>
+    <div id="nestable" class="dd">
+        <ol class="dd-list">
+            {% include "SongbirdNestablePageBundle:Page:tree.html.twig" with { 'tree':tree } %}
+        </ol>
+    </div>
 
-        <ul>
-        <li>
-            <a href="{{ path('page_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
-    {% endblock %}
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/SongbirdNestableBundle/js/jquery.nestable.js') }}"></script>
+    <script>
+
+    $(function() {
+
+        var before = null, after = null;
+
+        $('.dd').nestable({ 
+            afterInit: function ( event ) { }
+        });
+
+        $('.dd').nestable('collapseAll');
+        before = JSON.stringify($('.dd').nestable('serialize'));
+        $('.dd').on('dragEnd', function(event, item, source, destination, position) {
+
+            id = item.attr('data-id');
+            parentId = item.closest('li').parent().closest('li').attr('data-id');
+
+            // if parent id is null of if parent id and id is the same, it is the top level. 
+            parentId = (parentId == id || typeof(parentId)  === "undefined") ?  '' : parentId; 
+
+            after = JSON.stringify($('.dd').nestable('serialize'));
+            
+            if (before != after) {
+                $.ajax({
+                    type: "POST",
+                    url: "{{ path('page_reorder') }}",
+                    data: {id: id, parentId: parentId, position: position},
+                    success: function (data, dataType) {
+                        if (data.success) {
+                            $('.alert').addClass('alert-success');
+                        }
+                        else {
+                            $('.alert').addClass('alert-danger');
+                        }
+                        $('.alert').html(data.message);
+                        $('.alert').css('display','block');
+                        $('.alert').fadeTo( 0 , 1, function() {});
+                        $('.alert').fadeTo( 4000 , 0, function() {});
+                    },
+
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        console.log(XMLHttpRequest);
+                    }
+                });
+                before = after;
+            }
+        });
+    });
+    
+    
+    </script>
+{% endblock %}
