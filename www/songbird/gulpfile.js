@@ -10,7 +10,7 @@ var exec = require('child_process').exec;
 
 // Minify JS
 gulp.task('js', function () {
-    return gulp.src(['bower_components/jquery/dist/jquery.js',
+    return gulp.src([
         'bower_components/bootstrap/dist/js/bootstrap.js'])
         .pipe(concat('javascript.js'))
         .pipe(uglify())
