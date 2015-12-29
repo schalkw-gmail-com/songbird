@@ -11,5 +11,11 @@
             <argument>Songbird\NestablePageBundle\Entity\Page</argument>
             <argument>SongbirdNestablePageBundle:PageAdmin</argument>
         </service>
+        <service id="songbird.admin.pagemeta" class="Songbird\NestablePageBundle\Admin\PageMetaAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="admin" label="Page"/>
+            <argument>null</argument>
+            <argument>Songbird\NestablePageBundle\Entity\PageMeta</argument>
+            <argument>SongbirdNestablePageBundle:PageMetaAdmin</argument>
+    </service>
     </services>
 </container>

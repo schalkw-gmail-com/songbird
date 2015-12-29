@@ -2,6 +2,10 @@
     <li class='dd-item' data-id='{{ v.getId() }}'>
         <div class='dd-handle'>
             <a class="dd-nodrag" href="{{ path('admin_songbird_page_edit', {id: v.getId()}) }}">{{ v.getSlug() }}</a>
+            <a title="Delete" class="dd-nodrag btn-default delete_link" href="{{ path('admin_songbird_page_delete', {id: v.getId()}) }}">
+                <i class="glyphicon glyphicon-remove"></i>
+            </a>
+
         </div>
 
         {% set children = v.getChildren()|length %}
