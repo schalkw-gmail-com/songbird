@@ -10,7 +10,8 @@ var exec = require('child_process').exec;
 
 // Minify JS
 gulp.task('js', function () {
-    return gulp.src(['src/Songbird/NestablePageBundle/Resources/public/js/*.js',])
+    return gulp.src(['bower_components/jquery/dist/jquery.js',
+        'bower_components/bootstrap/dist/js/bootstrap.js'])
         .pipe(concat('javascript.js'))
         .pipe(uglify())
         .pipe(sourcemaps.write('./'))
@@ -23,8 +24,7 @@ gulp.task('css', function () {
         'bower_components/bootstrap/dist/css/bootstrap.css',
         'src/AppBundle/Resources/public/less/*.less',
         'src/AppBundle/Resources/public/sass/*.scss',
-        'src/AppBundle/Resources/public/css/*.css',
-				'src/Songbird/NestablePageBundle/Resources/public/css/*.css'])
+        'src/AppBundle/Resources/public/css/*.css'])
         .pipe(gulpif(/[.]less/, less()))
         .pipe(gulpif(/[.]scss/, sass()))
         .pipe(concat('styles.css'))
