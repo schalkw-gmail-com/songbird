@@ -8,6 +8,7 @@ imports:
 parameters:
     locale: en
     supported_lang: [ 'en', 'fr' ]
+    admin_path: admin
 
 framework:
     #esi:             ~
@@ -107,4 +108,6 @@ sonata_admin:
                 type: sonata.block.service.dashboard.welcome
     options:
         use_select2: false # disable select2
+
+        
 
