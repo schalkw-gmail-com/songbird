@@ -30,17 +30,28 @@ class PageRepository extends EntityRepository
 
     }
 
-    public function findParent() {
+    /**
+     * get root node
+     *
+     * $publish = 0, displays all unpublished nodes
+     * $publish = 1, displays all published nodes
+     * $publish = 2, displays all nodes
+     * @param  integer $published 
+     * @return $query
+     */
+    public function findParent($published = 2) {
 
         $query = $this->createQueryBuilder('p')
             ->select('p')
-            ->where('p.isPublished = :isPublished')
-            ->andWhere('p.parent is null')
-            ->setParameter('isPublished', '1')
-            ->orderBy('p.sequence', 'asc')
-            ->getQuery();
+            ->Where('p.parent is null')
+            ->orderBy('p.sequence', 'asc');
 
-        return $query->getResult();
+        if ($published < 2) {
+            $query->andWhere('p.isPublished = :isPublished')
+            ->setParameter('isPublished', $published);
+        }
+
+        return $query->getQuery()->getResult();
 
     }
 }

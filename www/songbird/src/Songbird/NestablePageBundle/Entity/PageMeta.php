@@ -45,14 +45,14 @@ class PageMeta
     /**
      * @var string
      *
-     * @ORM\Column(name="short_description", type="text")
+     * @ORM\Column(name="short_description", type="text", nullable=true)
      */
     private $short_description;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="content", type="text")
+     * @ORM\Column(name="content", type="text", nullable=true)
      */
     private $content;
 
@@ -219,12 +219,5 @@ class PageMeta
         return $this->page;
     }
 
-    /**
-     * convert object to string
-     * @return string
-     */
-    public function __toString()
-    {
-        return $this->title;
-    }
+    
 }

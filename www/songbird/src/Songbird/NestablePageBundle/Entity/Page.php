@@ -32,14 +32,14 @@ class Page
     /**
      * @var boolean
      *
-     * @ORM\Column(name="isPublished", type="boolean")
+     * @ORM\Column(name="isPublished", type="boolean", nullable=true)
      */
     private $isPublished;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="sequence", type="integer")
+     * @ORM\Column(name="sequence", type="integer", nullable=true)
      */
     private $sequence;
 
@@ -72,7 +72,7 @@ class Page
     private $children;
    
     /**
-     * @ORM\OneToMany(targetEntity="Songbird\NestablePageBundle\Entity\PageMeta", mappedBy="page")
+     * @ORM\OneToMany(targetEntity="Songbird\NestablePageBundle\Entity\PageMeta", mappedBy="page", cascade={"persist"}))
      */
     private $pageMetas;
     

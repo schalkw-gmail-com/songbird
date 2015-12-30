@@ -7,6 +7,11 @@
 class_name: AcceptanceTester
 modules:
     enabled:
+        - Symfony2:
+            app_path: '../../../app'
+            var_path: '../../../app'
+        - Doctrine2:
+            depends: Symfony2
         - WebDriver:
             url: 'http://songbird.dev/app_test.php'
             browser: firefox
