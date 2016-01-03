@@ -1,11 +1,11 @@
-{% extends 'SonataAdminBundle:CRUD:base_list.html.twig' %}
+{% extends '::base.html.twig' %}
 
 {% block stylesheets %}
 	{{ parent() }}
 	<link rel="stylesheet" href="{{ asset('bundles/songbirdnestablepage/css/styles.css ') }}">
 {% endblock %}
 
-{% block list_table %}
+{% block body -%}
 	<div class="alert alert-dismissable">
 		{{ 'flash_reorder_instructions' | trans({}, 'SongbirdNestablePageBundle') }}
 	</div>
@@ -15,20 +15,23 @@
 	    <button type="button" onclick="$('.dd').nestable('collapseAll')">Collapse All</button>
 	    <div id="nestable" class="dd">
 	        <ol class="dd-list">
-	            {% include "SongbirdNestablePageBundle:Admin:tree.html.twig" with { 'tree':tree } %}
+	            {% include "SongbirdNestablePageBundle:Page:tree.html.twig" with { 'tree':tree } %}
 	        </ol>
 	    </div>
 	{% endblock %}
 
-{% endblock %}
-
-
-{% block list_filters %}
-	{# no filter for now #}
+	<ul class="record_actions">
+	    <li>
+	        <a href="{{ path('songbird_page_new') }}">
+	            Create New Page
+	        </a>
+	    </li>
+    </ul>
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
+    <script src="{{ asset('bundles/songbirdnestablepage/js/jquery-1.11.3.min.js') }}"></script>
     <script src="{{ asset('bundles/songbirdnestablepage/js/jquery.nestable.js') }}"></script>
     <script>
 
@@ -55,7 +58,7 @@
 	        if (before != after) {
 	            $.ajax({
 	                type: "POST",
-	                url: "{{ path('admin_songbird_page_reorder') }}",
+	                url: "{{ path('songbird_page_reorder') }}",
 	                data: {id: id, parentId: parentId, position: position},
 	                success: function (data, dataType) {
 	                	if (data.success) {

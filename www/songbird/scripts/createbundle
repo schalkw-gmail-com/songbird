@@ -5,6 +5,7 @@ if [ -z "$*" ]; then
  	exit;
 fi
 
+# using symfony bundle generation script is a quick way to generate bundles but doesn't mean its the best way.
 app/console generate:bundle --namespace=$1/$2 --dir=src --bundle-name=$1$2 --format=annotation --no-interaction
 rm -rf src/$1/$2/Tests/*
 rm -rf src/$1/$2/Resources/views/Default

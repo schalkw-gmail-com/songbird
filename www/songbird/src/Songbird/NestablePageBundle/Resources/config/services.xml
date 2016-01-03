@@ -4,18 +4,13 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
+    <!--
     <services>
-        <service id="songbird.admin.page" class="Songbird\NestablePageBundle\Admin\PageAdmin">
-            <tag name="sonata.admin" manager_type="orm" group="admin" label="Page"/>
-            <argument>null</argument>
-            <argument>Songbird\NestablePageBundle\Entity\Page</argument>
-            <argument>SongbirdNestablePageBundle:PageAdmin</argument>
+        <service id="songbird_nestable_page.example" class="Songbird\NestablePageBundle\Example">
+            <argument type="service" id="service_id" />
+            <argument>plain_value</argument>
+            <argument>%parameter_name%</argument>
         </service>
-        <service id="songbird.admin.pagemeta" class="Songbird\NestablePageBundle\Admin\PageMetaAdmin">
-            <tag name="sonata.admin" manager_type="orm" group="admin" label="Page"/>
-            <argument>null</argument>
-            <argument>Songbird\NestablePageBundle\Entity\PageMeta</argument>
-            <argument>SongbirdNestablePageBundle:PageMetaAdmin</argument>
-    </service>
     </services>
+    -->
 </container>

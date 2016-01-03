@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class PageType extends AbstractType
+class PageMetaType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,10 +15,12 @@ class PageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('slug')
-            ->add('isPublished')
-            ->add('sequence')
-            ->add('parent')
+            ->add('page_title')
+            ->add('menu_title')
+            ->add('locale')
+            ->add('short_description')
+            ->add('content')
+            ->add('page')
         ;
     }
     
@@ -28,7 +30,7 @@ class PageType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Songbird\NestablePageBundle\Entity\Page'
+            'data_class' => 'Songbird\NestablePageBundle\Entity\PageMeta'
         ));
     }
 
@@ -37,6 +39,6 @@ class PageType extends AbstractType
      */
     public function getName()
     {
-        return 'songbird_nestablepagebundle_page';
+        return 'songbird_nestablepagebundle_pagemeta';
     }
 }
