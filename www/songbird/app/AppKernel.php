@@ -32,7 +32,7 @@ class AppKernel extends Kernel
             new AppBundle\User(),
             // sonata media bundle
             new AppBundle\Media(),
-            new Songbird\NestablePageBundle\SongbirdNestablePageBundle(),
+            new Bpeh\NestablePageBundle\BpehNestablePageBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

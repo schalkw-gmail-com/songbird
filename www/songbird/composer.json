@@ -6,6 +6,12 @@
     "autoload": {
         "psr-4": { "": "src/", "SymfonyStandard\\": "app/SymfonyStandard/" }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/bernardpeh/NestablePageBundle"
+        }
+    ],
     "require": {
         "php": ">=5.3.9",
         "symfony/symfony": "2.7.1",
@@ -21,7 +27,8 @@
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "sonata-project/doctrine-orm-admin-bundle": "2.3.2",
         "sonata-project/admin-bundle": "2.3.3",
-        "sonata-project/media-bundle": "2.3.2"
+        "sonata-project/media-bundle": "2.3.2",
+        "bernardpeh/nestable-page-bundle": "0.1.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "2.5.3",
