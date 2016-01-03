@@ -197,6 +197,13 @@ class PageControllerTest extends WebTestCase
             'test page title',
             $client->getResponse()->getContent()
         );
+    } 
+    
+    /**
+     * scenario 1.16
+     */
+    public function testDeleteContactUsPage()
+    {
 
         // now if we remove contact_us page, ie id 5, all its page meta should be deleted
         $crawler = $client->request('GET', '/songbird_page/5');
@@ -216,5 +223,4 @@ class PageControllerTest extends WebTestCase
         $res = $client->getContainer()->get('doctrine')->getRepository('SongbirdNestablePageBundle:PageMeta')->findByPage(5);
         $this->assertEquals(0, count($res));
     } 
-    
 }
