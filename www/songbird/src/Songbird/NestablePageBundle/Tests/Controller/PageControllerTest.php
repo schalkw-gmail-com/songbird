@@ -204,7 +204,7 @@ class PageControllerTest extends WebTestCase
      */
     public function testDeleteContactUsPage()
     {
-
+	$client = static::createClient();
         // now if we remove contact_us page, ie id 5, all its page meta should be deleted
         $crawler = $client->request('GET', '/songbird_page/5');
         // at show pagemeta, click delete
