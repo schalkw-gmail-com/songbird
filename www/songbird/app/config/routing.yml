@@ -1,7 +1,7 @@
-bpeh_nestable_page:
-    resource: "@BpehNestablePageBundle/Controller/"
-    type:     annotation
-    prefix:   /
+# bpeh_nestable_page:
+#     resource: "@BpehNestablePageBundle/Controller/"
+#     type:     annotation
+#     prefix:   /
 
 app:
     resource: "@AppBundle/Controller/"
