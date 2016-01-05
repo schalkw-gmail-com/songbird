@@ -34,6 +34,10 @@
                 <source>admin.link.user_log</source>
                 <target>Connexion utilisateur</target>
             </trans-unit>
+            <trans-unit id="9">
+                <source>admin.link.page_management</source>
+                <target>Gestion de la page</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
