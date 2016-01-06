@@ -8,8 +8,9 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * PageMeta
  *
- * @ORM\Table()
+ * @ORM\Table(name="pagetest")
  * @ORM\Entity(repositoryClass="AppBundle\Entity\PageRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Page extends BasePage
 {

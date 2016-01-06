@@ -27,7 +27,7 @@ class PageAdminController extends CRUDController
         $this->get('twig')->getExtension('form')->renderer->setTheme($formView, $this->admin->getFilterTheme());
 
         // $rootMenuItems = $em->getRepository('SongbirdPageBundle:Page')->findParentByLocale($this->get('request')->getLocale());
-        $rootMenuItems = $em->getRepository('AppBundle:Page')->findParent();
+        $rootMenuItems = $this->getDoctrine()->getRepository('AppBundle:Page')->findParent();
 
         return $this->render('AppBundle:Admin:list.html.twig', array(
             'action'     => 'list',
@@ -53,7 +53,7 @@ class PageAdminController extends CRUDController
         // new sequence of this element. 0 means first element.
         $position = $this->get('request')->get('position');
 
-        $result = $em->getRepository('AppBundle:Page')->reorderElement($id, $parentId, $position); 
+        $result = $this->getDoctrine()->getRepository('AppBundle:Page')->reorderElement($id, $parentId, $position); 
 
         return new JsonResponse(
             array('message' => $this->get('translator')->trans($result[0], array(), 'BpehNestablePageBundle')
