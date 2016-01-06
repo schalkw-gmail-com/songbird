@@ -1,18 +1,17 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace MyTest\PageBundle\Entity;
 
-use Bpeh\NestablePageBundle\Entity\Page as BasePage;
+use Bpeh\NestablePageBundle\Entity\PageMeta as BasePageMeta;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * PageMeta
  *
- * @ORM\Table(name="pagetest")
- * @ORM\Entity(repositoryClass="AppBundle\Entity\PageRepository")
- * @ORM\HasLifecycleCallbacks()
+ * @ORM\Table(name="pagetest_meta")
+ * @ORM\Entity
  */
-class Page extends BasePage
+class PageMeta extends BasePageMeta
 {
     /**
      * @var integer

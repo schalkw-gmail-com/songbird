@@ -31,7 +31,8 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new AppBundle\User(),
             new AppBundle\Media(),
-            new AppBundle\Page(),
+            // new AppBundle\Page(),
+            new MyTest\PageBundle\MyTestPageBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
