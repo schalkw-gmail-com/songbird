@@ -1,7 +1,7 @@
 my_test_page:
-    resource: "@MyTestPageBundle/Controller/"
+    resource: "@PageTestBundle/Controller/"
     type:     annotation
-    prefix:   /mytest
+    prefix:   /pagetest
 
 # bpeh_nestable_page:
 #     resource: "@BpehNestablePageBundle/Controller/"

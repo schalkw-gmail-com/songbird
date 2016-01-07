@@ -32,7 +32,7 @@ class AppKernel extends Kernel
             new AppBundle\User(),
             new AppBundle\Media(),
             // new AppBundle\Page(),
-            new MyTest\PageBundle\MyTestPageBundle(),
+            new Bpeh\NestablePageBundle\PageTestBundle\PageTestBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

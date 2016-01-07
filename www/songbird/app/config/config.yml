@@ -79,8 +79,14 @@ doctrine:
         resolve_target_entities:
             # Bpeh\NestablePageBundle\Model\PageBase: AppBundle\Entity\Page
             # Bpeh\NestablePageBundle\Model\PageMetaBase: AppBundle\Entity\PageMeta
-            Bpeh\NestablePageBundle\Model\PageBase: MyTest\PageBundle\Entity\Page
-            Bpeh\NestablePageBundle\Model\PageMetaBase: MyTest\PageBundle\Entity\PageMeta
+            Bpeh\NestablePageBundle\Model\PageBase: Bpeh\NestablePageBundle\PageTestBundle\Entity\Page
+            Bpeh\NestablePageBundle\Model\PageMetaBase: Bpeh\NestablePageBundle\PageTestBundle\Entity\PageMeta
+
+# bpeh_nestable_page:
+#     page_entity: Bpeh\NestablePageBundle\PageTestBundle\Entity\Page
+#     pagemeta_entity: Bpeh\NestablePageBundle\PageTestBundle\Entity\PageMeta
+#     page_type: Bpeh\NestablePageBundle\PageTestBundle\Form\PageType
+#     pagemeta_type: Bpeh\NestablePageBundle\PageTestBundle\Form\PageMetaType
 
 # Swiftmailer Configuration
 swiftmailer:
