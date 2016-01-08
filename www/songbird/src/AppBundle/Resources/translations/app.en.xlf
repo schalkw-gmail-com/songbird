@@ -34,10 +34,6 @@
                 <source>admin.link.user_log</source>
                 <target>User Log</target>
             </trans-unit>
-            <trans-unit id="9">
-                <source>admin.link.page_management</source>
-                <target>Page Management</target>
-            </trans-unit>
         </body>
     </file>
 </xliff>
