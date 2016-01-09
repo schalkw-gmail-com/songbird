@@ -149,3 +149,21 @@ sonata_media:
         local:
             directory:  %kernel.root_dir%/../web/uploads/media
             create:     true
+
+ivory_ck_editor:
+    default_config: songbird_toolbar
+    configs:
+        songbird_toolbar:
+            toolbar: standard
+            filebrowserBrowseRoute: admin_app_media_browser
+            filebrowserImageBrowseRoute: admin_app_media_browser
+            filebrowserImageBrowseRouteParameters:
+                provider: sonata.media.provider.image
+            filebrowserUploadRoute: admin_app_media_upload
+            filebrowserUploadRouteParameters:
+                provider: sonata.media.provider.file
+            # Upload file as image when sending a file from the image dialog
+            filebrowserImageUploadRoute: admin_app_media_upload
+            filebrowserImageUploadRouteParameters:
+                provider: sonata.media.provider.image
+                context: default # Optional, to upload in a custom context

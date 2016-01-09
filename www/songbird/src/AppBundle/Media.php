@@ -9,6 +9,7 @@ class Media extends Bundle
     // use a child bundle
     public function getParent()
     {
-        return 'SonataMediaBundle';
+        return 'CoopTilleulsCKEditorSonataMediaBundle';
     }
+
 }

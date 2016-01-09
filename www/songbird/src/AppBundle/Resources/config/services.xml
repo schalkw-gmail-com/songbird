@@ -57,13 +57,18 @@
       <service id="app.log_user_activity" class="AppBundle\Event\UserCustomAction">
         <tag name="kernel.event_listener" event="kernel.request" method="userLog" />
         <argument type="service" id="service_container" />
-    </service>
+      </service>
 
       <service id="app.admin.user.log" class="AppBundle\Admin\UserLogAdmin">
         <tag name="sonata.admin" manager_type="orm" group="admin" label="User"/>
         <argument>null</argument>
         <argument>AppBundle\Entity\UserLog</argument>
         <argument>AppBundle:UserLogAdmin</argument>
+      </service>
+
+      <service id="app.form.type.locale" class="AppBundle\Form\LocaleType">
+        <argument>%supported_lang%</argument>
+        <tag name="form.type" alias="locale" />
       </service>
 	</services>
 </container>
