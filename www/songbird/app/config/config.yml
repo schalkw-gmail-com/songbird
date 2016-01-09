@@ -76,13 +76,13 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
-        # resolve_target_entities:
-            # Bpeh\NestablePageBundle\Model\PageBase: AppBundle\Entity\Page
-            # Bpeh\NestablePageBundle\Model\PageMetaBase: AppBundle\Entity\PageMeta
+        resolve_target_entities:
+            Bpeh\NestablePageBundle\Model\PageBase: AppBundle\Entity\Page
+            Bpeh\NestablePageBundle\Model\PageMetaBase: AppBundle\Entity\PageMeta
 
-# bpeh_nestable_page:
-#     page_entity: AppBundle\Entity\Page
-#     pagemeta_entity: AppBundle\Entity\PageMeta
+bpeh_nestable_page:
+    page_entity: AppBundle\Entity\Page
+    pagemeta_entity: AppBundle\Entity\PageMeta
 
 # Don't have to worry this part if you are not extending the controller
 #     page_type: AppBundle\Form\PageType

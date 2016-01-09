@@ -30,7 +30,8 @@ class AppKernel extends Kernel
             // my bundles
             new AppBundle\AppBundle(),
             new AppBundle\User(),
-            new AppBundle\Media()
+            new AppBundle\Media(),
+            new AppBundle\Page(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
