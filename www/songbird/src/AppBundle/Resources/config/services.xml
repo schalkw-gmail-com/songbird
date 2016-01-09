@@ -34,7 +34,21 @@
         <argument>Dashboard Welcome</argument>
         <argument type="service" id="templating" />
       </service>
-    
+      
+      <service id="app.admin.page" class="AppBundle\Admin\PageAdmin">
+        <tag name="sonata.admin" manager_type="orm" group="admin" label="Page"/>
+        <argument>null</argument>
+        <argument>AppBundle\Entity\Page</argument>
+        <argument>AppBundle:PageAdmin</argument>
+      </service>
+      
+      <service id="app.admin.pagemeta" class="AppBundle\Admin\PageMetaAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="admin" label="Page"/>
+            <argument>null</argument>
+            <argument>AppBundle\Entity\PageMeta</argument>
+            <argument>AppBundle:PageMetaAdmin</argument>
+      </service> 
+      
       <service id="app.locale.listener" class="AppBundle\Event\LocaleListener">
         <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest" priority="17"/>
         <argument>%kernel.default_locale%</argument>
