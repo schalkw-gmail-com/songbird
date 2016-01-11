@@ -25,9 +25,9 @@ class IWantToManagePagesCest
     public function listPages(AcceptanceTester $I)
     {
         $I->click('Page Management');
-        // go to user listing page
-        $I->canSeeInCurrentUrl('/admin/app/user/list');
-
+        // click on expand all
+        $I->click('Expand All');
+        $I->canSeeNumberOfElements('(//div[@id="nestable"]/ol/li)[2]/ol/li',2);
     }
 
     /**
@@ -36,18 +36,28 @@ class IWantToManagePagesCest
      */
     public function showContactUsPage(AcceptanceTester $I)
     {
-
-
+        $I->amOnPage('/admin/app/page/5/show');
+        $I->canSee('contact_us');
+        $I->canSee('Created');
     }
 
     /**
      * Scenario 1.62
+     * Drag and drop is abit buggy. didn't drop to the right place.
      * @before login
      */
     public function reorderHome(AcceptanceTester $I)
     {
-
-
+        $I->click('Page Management');
+        // click on expand all
+        $I->click('Expand All');
+        $I->dragAndDrop('//li[@data-id="3"]', '//li[@data-id="5"]');
+        $I->waitForText('reordered successfully');
+        $I->canSeeNumberOfElements('(//div[@id="nestable"]/ol/li)[2]/ol/li',1);
+        // now reorder it back
+        $I->dragAndDrop('//li[@data-id="3"]', '//li[@data-id="4"]');
+        $I->waitForText('reordered successfully');
+        $I->canSeeNumberOfElements('(//div[@id="nestable"]/ol/li)[2]/ol/li',2);
     }
 
     /**
