@@ -61,13 +61,15 @@ class PageAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        // define group zoning
-        $formMapper
+        
+        // if there is subject (object), then it is edit action
+        if ($this->id($this->getSubject())) {
+            $formMapper
             ->with($this->trans('PageMetas'), array('class' => 'col-md-9'))->end()
             ->with($this->trans('Options'), array('class' => 'col-md-3'))->end()
-        ;
+            ;
 
-        $formMapper
+            $formMapper
             ->with('Options')
             ->add('slug')
             ->add('sequence')
@@ -86,6 +88,16 @@ class PageAdmin extends Admin
             ->end()
         ;
 
+        }
+        // else its create action
+        else {
+            $formMapper
+            ->add('slug')
+            ->add('sequence')
+            ->add('isPublished')    
+            ->end()
+            ;
+        }
     }
 
     /**

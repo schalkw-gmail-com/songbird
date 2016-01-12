@@ -25,7 +25,8 @@ class PageMetaAdmin extends Admin
             ->add('short_description', 'text', array(
                 'required' => false))
             ->add('content', 'ckeditor', array(
-                'config_name' => 'songbird_toolbar')
+                'config_name' => 'songbird_toolbar',
+                'required' => false)
             );
     }
 }

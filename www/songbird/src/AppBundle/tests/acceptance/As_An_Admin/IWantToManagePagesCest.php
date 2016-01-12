@@ -66,7 +66,14 @@ class IWantToManagePagesCest
      */
     public function editHomepageMeta(AcceptanceTester $I)
     {
-  
+        $I->click('Page Management');
+        $I->click('home');
+        $I->fillField('//input[contains(@id, "_slug")]', 'home1');
+        $I->canSeeNumberOfElements('//select[contains(@id,"_0_locale")]/option',2);
+        // ckeeditor should be loaded
+        $I->canSeeInPageSource('cke_1_top');
+        $I->click('btn_update_and_edit');
+        $I->canSee('has been successfully updated.');
     }
 
     /**
@@ -75,6 +82,52 @@ class IWantToManagePagesCest
      */
     public function createAndDeleteTestPage(AcceptanceTester $I)
     {
+        // create the page
+        $I->click('Page Management');
+        $I->click('Add new');
+        $I->fillField('//input[contains(@id, "_slug")]', 'pagetest');
+        $I->fillField('//input[contains(@id, "_sequence")]', '4');
+        $I->click('btn_create_and_edit');
+        $I->canSee('has been successfully created.');
+
+        // create the pagemeta
+        $I->click('//a[contains(@href, "/pagemeta/create")]');
+        $I->waitForElement('//input[contains(@id, "_pageMetas_0_menu_title")]');
+        $I->fillField('//input[contains(@id, "_0_menu_title")]', 'menu test 0');
+        $I->fillField('//input[contains(@id, "_0_page_title")]', 'page test 0');
+        $I->selectOption('//select[contains(@id, "_0_locale")]', 'fr');
+
+        $I->executeInSelenium(
+            function (\Facebook\WebDriver\Remote\RemoteWebDriver $webDriver)
+            {
+                $webDriver->switchTo()->frame(
+                    $webDriver->findElement(\Facebook\WebDriver\WebDriverBy::cssSelector(
+                        '.cke_wysiwyg_frame'
+                    ))
+                );
+
+                $webDriver->executeScript(
+                    'arguments[0].innerHTML = "' . addslashes('<p>this is test content</p>') . '"',
+                    [$webDriver->findElement(\Facebook\WebDriver\WebDriverBy::tagName('body'))]
+                );
+
+                $webDriver->switchTo()->defaultContent();
+            }
+        );
+        // click submit and test everything saving correctly.
+        $I->click('btn_update_and_edit');
+        $I->canSee('has been successfully updated.');
+        $I->canSeeInPageSource('menu test 0');
+        $I->seeOptionIsSelected('//select[contains(@id, "_0_locale")]', 'fr');
+        $I->canSeeInPageSource('this is test content');
         
+        // now let us create another pagemeta
+        $I->click('//a[contains(@href, "/pagemeta/create")]');
+        $I->waitForElement('//input[contains(@id, "_pageMetas_1_menu_title")]');
+        $I->fillField('//input[contains(@id, "_1_menu_title")]', 'menu test 1');
+        $I->fillField('//input[contains(@id, "_1_page_title")]', 'page test 1');
+        // click submit and test everything saving correctly.
+        $I->click('btn_update_and_edit');
+        $I->canSeeInPageSource('menu test 1');
     }
 }
