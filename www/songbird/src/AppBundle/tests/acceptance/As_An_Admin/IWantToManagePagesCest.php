@@ -82,6 +82,7 @@ class IWantToManagePagesCest
      */
     public function createAndDeleteTestPage(AcceptanceTester $I)
     {
+
         // create the page
         $I->click('Page Management');
         $I->click('Add new');
@@ -96,7 +97,7 @@ class IWantToManagePagesCest
         $I->fillField('//input[contains(@id, "_0_menu_title")]', 'menu test 0');
         $I->fillField('//input[contains(@id, "_0_page_title")]', 'page test 0');
         $I->selectOption('//select[contains(@id, "_0_locale")]', 'fr');
-
+        // codeception selectIFrame is not good. We will use facebook driver
         $I->executeInSelenium(
             function (\Facebook\WebDriver\Remote\RemoteWebDriver $webDriver)
             {
@@ -129,5 +130,20 @@ class IWantToManagePagesCest
         // click submit and test everything saving correctly.
         $I->click('btn_update_and_edit');
         $I->canSeeInPageSource('menu test 1');
+        // delete new meta and item should be gone
+        $I->click('(//ins[@class="iCheck-helper"])[2]');
+        $I->click('btn_update_and_edit');
+        $I->canSee('has been successfully updated.');
+        $I->cantSeeInPageSource('menu test 1');
+        // return back to page listing and click delete
+        $I->click('Page Management');
+        $I->click('//a[contains(@href,"/app/page/6/delete")]');
+
+        $I->click('//button[@type="submit"]');
+        $I->waitForText('contact_us');
+        $I->cantSee('pagetest');
+        // we also make sure pagemata id 11 is no longer avaliable
+        $I->amOnPage('/admin/app/pagemeta/11/show');
+        $I->canSee('unable to find the object with id');
     }
 }
