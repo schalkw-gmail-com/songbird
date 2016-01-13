@@ -15,4 +15,5 @@
 /composer.lock
 /node_modules
 /bower_components
-tests/_output/*
+
+src/AppBundle/tests/_output/*

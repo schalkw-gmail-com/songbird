@@ -5,11 +5,11 @@ app:
 # Sonata media routing
 gallery:
     resource: '@SonataMediaBundle/Resources/config/routing/gallery.xml'
-    prefix: /admin/media/gallery
+    prefix: /%admin_path%/media/gallery
 
 media:
     resource: '@SonataMediaBundle/Resources/config/routing/media.xml'
-    prefix: /admin/media
+    prefix: /%admin_path%/media
 
 # FOS user bundle default routing
 fos_user_security:
@@ -30,9 +30,9 @@ fos_user_resetting:
 # sonata admin
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
-    prefix: /admin
+    prefix: /%admin_path%
 
 _sonata_admin:
     resource: .
     type: sonata_admin
-    prefix: /admin
+    prefix: /%admin_path%
