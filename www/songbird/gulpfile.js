@@ -24,7 +24,7 @@ gulp.task('css', function () {
     return gulp.src([
         'bower_components/bootstrap/dist/css/bootstrap.css',
         'bower_components/smartmenus/dist/css/sm-core-css.css',
-        'bower_components/smartmenus/dist/css/sm-clean/sm-clean.css',q
+        'bower_components/smartmenus/dist/css/sm-clean/sm-clean.css',
         'src/AppBundle/Resources/public/less/*.less',
         'src/AppBundle/Resources/public/sass/*.scss',
         'src/AppBundle/Resources/public/css/*.css'])
