@@ -1,0 +1,18 @@
+{% extends "AppBundle::base.html.twig" %}
+
+{% block title %}
+	{{ page.getPageMetas()[0].getPageTitle() }}
+{% endblock %}
+
+{% block content %}
+{% if page is not null %}
+<div class="jumbotron">
+	<h1>{{ page.getPageMetas()[0].getShortDescription() | raw }}</h1>
+</div>
+
+{{ page.getPageMetas()[0].getContent() | raw }}
+
+{% endif %}
+{% endblock %}
+
+

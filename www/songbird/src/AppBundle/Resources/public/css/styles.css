@@ -1,15 +1,31 @@
 body {
     color: #000;
+    background: #fff;
 }
 
-.topmenu {
-    padding: 15px;
-}
 .logo img {
     display: inline;
     padding: 10px;
     max-height: 100%;
     max-width: 50%;
+}
+
+#page_menu li {
+        line-height:30px;
+        padding-top:10px;
+}
+
+#page_logo {
+        padding: 0px 10px;
+        margin-top:-10px;
+}
+
+.vspace {
+        height:20px;
+}
+
+.navbar-brand img{
+        margin-top: -8px;
 }
 
 .skin-black .logo, .skin-black .left-side {
@@ -19,4 +35,21 @@ body {
 
 .sidebar ul, .sidebar li {
     padding-top:20px;
+}
+
+.admin_top_left {
+        padding-top:14px;
+        padding-right:20px;
+}
+#top_menu {
+        padding: 15px 0px 5px 0px;
+}
+
+.sm-clean {
+        border-radius: 6px;
+}
+
+#frontend_lang_toggle {
+        padding:10px 20px 0px 0px;
+        float:right;
 }

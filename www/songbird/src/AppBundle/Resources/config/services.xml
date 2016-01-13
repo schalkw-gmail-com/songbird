@@ -70,5 +70,13 @@
         <argument>%supported_lang%</argument>
         <tag name="form.type" alias="locale" />
       </service>
+
+      <service id="menu_locale_title.twig_extension"
+            class="AppBundle\Twig\Extension\MenuLocaleTitle"
+            public="false">
+            <tag name="twig.extension" />
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service" id="service_container" />
+      </service>
 	</services>
 </container>

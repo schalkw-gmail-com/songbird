@@ -17,6 +17,7 @@
   ],
   "devDependencies": {
     "jquery": "~2.1.4",
-    "bootstrap": "~3.3.6"
+    "bootstrap": "~3.3.6",
+    "smartmenus": "~0.9.7"
   }
 }

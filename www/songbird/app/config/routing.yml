@@ -1,12 +1,3 @@
-# bpeh_nestable_page:
-#     resource: "@BpehNestablePageBundle/Controller/"
-#     type:     annotation
-#     prefix:   /
-
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
-
 # Sonata media routing
 gallery:
     resource: '@SonataMediaBundle/Resources/config/routing/gallery.xml'
@@ -41,3 +32,7 @@ _sonata_admin:
     resource: .
     type: sonata_admin
     prefix: /%admin_path%
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
