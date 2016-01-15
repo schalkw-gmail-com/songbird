@@ -17,7 +17,7 @@ class PageAdminController extends CRUDController
     public function listAction()
     {
         if (false === $this->admin->isGranted('LIST')) {
-            throw new AccessDeniedException();
+            throw $this->createAccessDeniedException();
         }
 
         $datagrid = $this->admin->getDatagrid();
