@@ -22,19 +22,20 @@ class IWantToViewTheFrontendCest
     public function menusAreWorking(AcceptanceTester $I)
     {
         $I->amOnPage('/');
-        $I->executeInSelenium(
-            function (\Facebook\WebDriver\Remote\RemoteWebDriver $webDriver)
-            {
-                $webDriver->moveToElement(
-                    $webDriver->findElement(\Facebook\WebDriver\WebDriverBy::linkText(
-                        'About'
-                    ))
-                );
+        $I->canSeeNumberOfElements('(//ul[@id="top_menu"]/li)[3]/ul/li', 2);
+    }
 
-            }
-        );
+    public function subPagesAreWorking(AcceptanceTester $I)
+    {
+        $I->amOnPage('/');
+        $I->click('Contact');
+        $I->canSee('This project is hosted in');
+    }
 
-        $I->waitForText('Where do I start');
-        $I->canSeeNumberOfElements('(//ul[@id="top_menu"])[3]/ul/li', 2);
+    public function loginMenuWorking(AcceptanceTester $I)
+    {
+        $I->amOnPage('/');
+        $I->click('Log in');
+        $I->canSeeNumberOfElements('//ul[@id="top_menu"]/li', 3);
     }
 }
