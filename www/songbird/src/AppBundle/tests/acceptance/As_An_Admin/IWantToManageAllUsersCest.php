@@ -19,7 +19,7 @@ class IWantToManageAllUsersCest
     }
 
     /**
-     * Scenario 1.61
+     * Scenario 10.6.1
      * @before login
      */
     public function listAllProfiles(AcceptanceTester $I)
@@ -31,7 +31,7 @@ class IWantToManageAllUsersCest
     }
 
     /**
-     * Scenario 1.62
+     * Scenario 10.6.2
      * @before login
      */
     public function showTest3User(AcceptanceTester $I)
@@ -45,7 +45,7 @@ class IWantToManageAllUsersCest
     }
 
     /**
-     * Scenario 1.63
+     * Scenario 10.6.3
      * @before login
      */
     public function editTest3User(AcceptanceTester $I)
@@ -72,7 +72,7 @@ class IWantToManageAllUsersCest
     }
 
     /**
-     * Scenario 1.64
+     * Scenario 10.6.4
      * @before login
      */
     public function createAndDeleteNewUser(AcceptanceTester $I)

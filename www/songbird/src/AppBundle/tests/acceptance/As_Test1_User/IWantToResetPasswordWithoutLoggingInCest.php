@@ -19,7 +19,7 @@ class IWantToResetPasswordWithoutLoggingInCest
     }
 
     /**
-     * Scenario 2.11
+     * Scenario 11.1.1
      */
     public function resetPasswordSuccessfully(AcceptanceTester $I)
     {
