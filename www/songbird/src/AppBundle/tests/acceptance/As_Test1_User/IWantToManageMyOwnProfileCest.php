@@ -20,7 +20,7 @@ class IWantToManageMyOwnProfileCest
     }
 
     /**
-     * Scenario 1.41
+     * Scenario 10.4.1
      * @before login
      */
     public function showMyProfile(AcceptanceTester $I)
@@ -32,7 +32,7 @@ class IWantToManageMyOwnProfileCest
     }
 
     /**
-     * Scenario 1.42
+     * Scenario 10.4.2
      * @before login
      */
     public function hidUneditableFields(AcceptanceTester $I)
@@ -47,7 +47,7 @@ class IWantToManageMyOwnProfileCest
     }
 
     /**
-     * Scenario 1.43
+     * Scenario 10.4.3
      * @before login
      */
     public function updateFirstnameOnly(AcceptanceTester $I)
@@ -76,7 +76,7 @@ class IWantToManageMyOwnProfileCest
     }
 
     /**
-     * Scenario 1.44
+     * Scenario 10.4.4
      * @before login
      */
     public function updatePasswordOnly(AcceptanceTester $I)
