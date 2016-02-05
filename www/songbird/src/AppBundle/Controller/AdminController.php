@@ -28,7 +28,7 @@ class AdminController extends Controller
             return $this->redirect($referer);
         }
         // if logged in, redirect to admin
-        elseif ($this->get('security.authorization_checker')->isGranted('ROLE_USER')) {
+        elseif ($auth_checker->isGranted('ROLE_USER')) {
             return $this->redirectToRoute('sonata_admin_dashboard');
         }
         // else redirect to homepage
