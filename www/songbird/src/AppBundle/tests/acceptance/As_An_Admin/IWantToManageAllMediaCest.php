@@ -19,7 +19,7 @@ class IWantToManageAllMediaCest
     }
 
     /**
-     * Scenario 4.21
+     * Scenario 14.2.1
      * @before login
      */
     public function viewMediaList(AcceptanceTester $I)
@@ -31,7 +31,7 @@ class IWantToManageAllMediaCest
     }
 
     /**
-     * Scenario 4.22
+     * Scenario 14.2.2
      * @before login
      */
     public function showFile1(AcceptanceTester $I)
@@ -44,7 +44,7 @@ class IWantToManageAllMediaCest
     }
 
     /**
-     * Scenario 4.23
+     * Scenario 14.2.3
      * @before login
      */
     public function editFile3(AcceptanceTester $I)
@@ -66,7 +66,7 @@ class IWantToManageAllMediaCest
     }
 
     /**
-     * Scenario 4.24
+     * Scenario 14.2.4
      * @before login
      */
     public function uploadAndDeleteMedia(AcceptanceTester $I)
