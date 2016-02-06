@@ -141,6 +141,8 @@ class IWantToManageAllGalleriesCest
         $I->canSee('gallery 4');
 
         // now delete user
+        // scroll to bottom if you screen is too small
+        // $I->executeJS('window.scrollTo(0,200);');
         // click on delete checkbox
         $I->click('(//ins[@class="iCheck-helper"])[5]');
         // click on delete button
