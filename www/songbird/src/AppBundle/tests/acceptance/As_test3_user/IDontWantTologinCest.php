@@ -19,7 +19,7 @@ class IDontWantTologinCest
     }
 
     /**
-     * Scenario 1.31
+     * Scenario 10.3.1
      * @before login
      */
     public function AccountDisabled(AcceptanceTester $I) {

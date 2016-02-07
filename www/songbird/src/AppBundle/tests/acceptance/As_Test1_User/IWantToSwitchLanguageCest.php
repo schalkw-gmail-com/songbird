@@ -19,7 +19,7 @@ class IWantToSwitchLanguageCest
     }
 
     /**
-     * Scenario 3.11
+     * Scenario 13.1.1
      * @before login
      */
     public function localeInFrench(AcceptanceTester $I)
