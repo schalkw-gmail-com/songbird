@@ -19,7 +19,7 @@ class IWantToManageAllMediaCest
     }
 
     /**
-     * Scenario 4.21
+     * Scenario 14.2.1
      * @before login
      */
     public function viewMediaList(AcceptanceTester $I)
@@ -31,7 +31,7 @@ class IWantToManageAllMediaCest
     }
 
     /**
-     * Scenario 4.22
+     * Scenario 14.2.2
      * @before login
      */
     public function showFile1(AcceptanceTester $I)
@@ -44,7 +44,7 @@ class IWantToManageAllMediaCest
     }
 
     /**
-     * Scenario 4.23
+     * Scenario 14.2.3
      * @before login
      */
     public function editFile3(AcceptanceTester $I)
@@ -53,20 +53,20 @@ class IWantToManageAllMediaCest
         $I->waitForText('file 3');
         $I->click('file 3');
         
-        $I->fillField('//input[contains(@id,"_name")]', 'file 3 - updated');
+        $I->fillField('//input[contains(@id,"_name")]', 'file updated 3');
         $I->click('//button[@name="btn_update_and_list"]');
-        $I->canSee('file 3 - updated');
+        $I->canSee('file updated 3');
         // now revert the changes
         $I->click('Media Management');
-        $I->waitForText('file 3 - updated');
-        $I->click('file 3 - updated');
+        $I->waitForText('file updated 3');
+        $I->click('file updated 3');
         $I->fillField('//input[contains(@id,"_name")]', 'file 3');
         $I->click('//button[@name="btn_update_and_list"]');
         $I->canSee('file 3');
     }
 
     /**
-     * Scenario 4.24
+     * Scenario 14.2.4
      * @before login
      */
     public function uploadAndDeleteMedia(AcceptanceTester $I)

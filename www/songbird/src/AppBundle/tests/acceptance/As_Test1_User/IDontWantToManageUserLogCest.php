@@ -19,7 +19,7 @@ class IDontWantToAccessUserLogCest
     }
 
     /**
-     * Scenario 5.21
+     * Scenario 15.2.1
      * @before login
      */
     public function listUserLog(AcceptanceTester $I)
@@ -29,7 +29,7 @@ class IDontWantToAccessUserLogCest
     }
 
     /**
-     * Scenario 5.22
+     * Scenario 15.2.2
      * @before login
      */
     public function showLog1(AcceptanceTester $I)
@@ -39,7 +39,7 @@ class IDontWantToAccessUserLogCest
     }
 
     /**
-     * Scenario 5.23
+     * Scenario 15.2.3
      * @before login
      */
     public function Editlog1(AcceptanceTester $I)

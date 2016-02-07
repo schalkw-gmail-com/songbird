@@ -19,7 +19,7 @@ class IDontWantToManageAllMediaCest
     }
 
     /**
-     * Scenario 4.41
+     * Scenario 14.4.1
      * @before login
      */
     public function viewMediaList(AcceptanceTester $I)
@@ -29,7 +29,7 @@ class IDontWantToManageAllMediaCest
     }
 
     /**
-     * Scenario 4.42
+     * Scenario 14.4.2
      * @before login
      */
     public function showFile1(AcceptanceTester $I)
@@ -39,7 +39,7 @@ class IDontWantToManageAllMediaCest
     }
 
     /**
-     * Scenario 4.43
+     * Scenario 14.4.3
      * @before login
      */
     public function EditFile3(AcceptanceTester $I)
