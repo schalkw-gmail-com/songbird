@@ -19,17 +19,18 @@ class IWantToAccessUserLogCest
     }
 
     /**
-     * Scenario 5.11
+     * Scenario 15.1.1
      * @before login
      */
     public function listUserLog(AcceptanceTester $I) {
         $I->click('User Log');
-        $I->canSee('User Log'); 
+        $I->waitForText('User Log List');
+        $I->canSee('User Log List');
         $I->canSeeNumberOfElements('//table[@class="table table-bordered table-striped"]/tbody/tr',2); 
     }
 
     /**
-     * Scenario 5.12
+     * Scenario 15.1.2
      * @before login
      */
     public function showUserLog1(AcceptanceTester $I) {
@@ -39,7 +40,7 @@ class IWantToAccessUserLogCest
     }
 
     /**
-     * Scenario 5.13
+     * Scenario 15.1.3
      * @before login
      */
     public function createUserLog(AcceptanceTester $I) {
@@ -47,7 +48,7 @@ class IWantToAccessUserLogCest
         IWantToManageAllUsersCest::createAndDeleteNewUser($I);
         // now look at the user log
         $I->click('User Log');
-        $I->canSee('test4@songbird.dev');
+        $I->canSee('/admin/app/user/5/delete ');
     }
     
 }
