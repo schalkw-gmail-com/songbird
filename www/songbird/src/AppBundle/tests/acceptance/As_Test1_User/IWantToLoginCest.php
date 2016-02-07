@@ -19,7 +19,7 @@ class IWantToLoginCest
     }
 
     /**
-     * Scenario 1.11
+     * Scenario 10.1.1
      */
     public function wrongLoginCredentials(AcceptanceTester $I) {
         Common::login($I, TEST1_USERNAME, '123');
@@ -27,7 +27,7 @@ class IWantToLoginCest
     }
 
     /**
-     * Scenario 1.12
+     * Scenario 10.1.2
      * @before login
      */
     public function seeMyDashboardContent(AcceptanceTester $I) {
@@ -37,7 +37,7 @@ class IWantToLoginCest
     }
 
     /**
-     * Scenario 1.13
+     * Scenario 10.1.3
      * @before login
      */
     public function logoutSuccessfully(AcceptanceTester $I) {
@@ -47,7 +47,7 @@ class IWantToLoginCest
     }
 
     /**
-     * Scenario 1.14
+     * Scenario 10.1.4
      */
     public function AccessAdminWithoutLoggingIn(AcceptanceTester $I) {
         $I->amOnPage('/admin');
