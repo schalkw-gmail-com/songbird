@@ -19,7 +19,7 @@ class IShouldNotBeAbleToManageOtherProfilesCest
     }
 
     /**
-     * Scenario 1.51
+     * Scenario 10.5.1
      * @before login
      */
     public function listAllProfiles(AcceptanceTester $I)
@@ -29,7 +29,7 @@ class IShouldNotBeAbleToManageOtherProfilesCest
     }
 
     /**
-     * Scenario 1.52
+     * Scenario 10.5.2
      * @before login
      */
     public function showTest2Profile(AcceptanceTester $I)
@@ -39,7 +39,7 @@ class IShouldNotBeAbleToManageOtherProfilesCest
     }
 
     /**
-     * Scenario 1.53
+     * Scenario 10.5.3
      * @before login
      */
     public function editTest2Profile(AcceptanceTester $I)
@@ -49,7 +49,7 @@ class IShouldNotBeAbleToManageOtherProfilesCest
     }
 
      /**
-     * Scenario 1.54
+     * Scenario 10.5.4
      * @before login
      */
     public function seeAdminDashboardContent(AcceptanceTester $I) {

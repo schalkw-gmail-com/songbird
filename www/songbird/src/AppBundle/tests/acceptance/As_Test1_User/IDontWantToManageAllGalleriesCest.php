@@ -19,7 +19,7 @@ class IDontWantToManageAllGalleriesCest
     }
 
     /**
-     * Scenario 4.31
+     * Scenario 14.3.1
      * @before login
      */
     public function viewGalleryList(AcceptanceTester $I)
@@ -29,7 +29,7 @@ class IDontWantToManageAllGalleriesCest
     }
 
     /**
-     * Scenario 4.32
+     * Scenario 14.3.2
      * @before login
      */
     public function showGallery1(AcceptanceTester $I)
@@ -39,7 +39,7 @@ class IDontWantToManageAllGalleriesCest
     }
 
     /**
-     * Scenario 4.33
+     * Scenario 14.3.3
      * @before login
      */
     public function editGallery3(AcceptanceTester $I)

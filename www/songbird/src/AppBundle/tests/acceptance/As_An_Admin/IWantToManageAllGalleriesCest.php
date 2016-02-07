@@ -19,7 +19,7 @@ class IWantToManageAllGalleriesCest
     }
 
     /**
-     * Scenario 4.11
+     * Scenario 14.1.1
      * @before login
      */
     public function viewGalleryList(AcceptanceTester $I)
@@ -31,7 +31,7 @@ class IWantToManageAllGalleriesCest
     }
 
     /**
-     * Scenario 4.12
+     * Scenario 14.1.2
      * @before login
      */
     public function showGallery1(AcceptanceTester $I)
@@ -46,7 +46,7 @@ class IWantToManageAllGalleriesCest
     }
 
     /**
-     * Scenario 4.13
+     * Scenario 14.1.3
      * @before login
      */
     public function editGallery3(AcceptanceTester $I)
@@ -69,7 +69,7 @@ class IWantToManageAllGalleriesCest
     }
 
     /**
-     * Scenario 4.14
+     * Scenario 14.1.4
      * @before login
      */
     public function AddAndDeleteMediaUnderGallery3(AcceptanceTester $I)
@@ -125,7 +125,7 @@ class IWantToManageAllGalleriesCest
     }
 
     /**
-     * Scenario 4.15
+     * Scenario 14.1.5
      * @before login
      */
     public function AddAndDeleteNewGallery(AcceptanceTester $I)
