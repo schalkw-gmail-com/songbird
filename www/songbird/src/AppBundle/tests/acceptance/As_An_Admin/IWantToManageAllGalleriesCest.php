@@ -117,6 +117,8 @@ class IWantToManageAllGalleriesCest
         $I->canSee('testupload.png');
 
         // we now need to remove it.
+        // scroll to bottom if you screen is too small
+        $I->executeJS('window.scrollTo(0,document.body.scrollHeight)');
         $I->click('(//ins[@class="iCheck-helper"])[5]');
         $I->click('OK');
         $I->canSeeInCurrentUrl('/admin/app/media/batch');
@@ -142,7 +144,7 @@ class IWantToManageAllGalleriesCest
 
         // now delete user
         // scroll to bottom if you screen is too small
-        // $I->executeJS('window.scrollTo(0,200);');
+        $I->executeJS('window.scrollTo(0,document.body.scrollHeight)');
         // click on delete checkbox
         $I->click('(//ins[@class="iCheck-helper"])[5]');
         // click on delete button
