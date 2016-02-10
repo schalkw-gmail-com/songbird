@@ -26,7 +26,7 @@ class IWantToAccessUserLogCest
         $I->click('User Log');
         $I->waitForText('User Log List');
         $I->canSee('User Log List');
-        $I->canSeeNumberOfElements('//table[@class="table table-bordered table-striped"]/tbody/tr',2); 
+        $I->canSeeNumberOfElements('//table[@class="table table-bordered table-striped"]/tbody/tr', [1,30]);
     }
 
     /**
@@ -35,8 +35,8 @@ class IWantToAccessUserLogCest
      */
     public function showUserLog1(AcceptanceTester $I) {
         $I->click('User Log');
-        $I->click('(//a[@title="Show"])[1]');
-        $I->canSee('/admin');
+        $I->amOnPage('/admin/app/userlog/1/show');
+        $I->canSee('/login');
     }
 
     /**
@@ -48,7 +48,8 @@ class IWantToAccessUserLogCest
         IWantToManageAllUsersCest::createAndDeleteNewUser($I);
         // now look at the user log
         $I->click('User Log');
-        $I->canSee('/admin/app/user/5/delete ');
+        // $I->executeJS('window.scrollTo(0,document.body.scrollHeight)');
+        $I->canSee('/delete');
     }
     
 }
