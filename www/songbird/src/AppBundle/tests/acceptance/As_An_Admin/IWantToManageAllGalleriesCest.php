@@ -117,6 +117,7 @@ class IWantToManageAllGalleriesCest
         $I->canSee('testupload.png');
 
         // we now need to remove it.
+        $I->executeJS('window.scrollTo(0,document.body.scrollHeight)');
         $I->click('(//ins[@class="iCheck-helper"])[5]');
         $I->click('OK');
         $I->canSeeInCurrentUrl('/admin/app/media/batch');
@@ -142,6 +143,7 @@ class IWantToManageAllGalleriesCest
 
         // now delete user
         // click on delete checkbox
+        $I->executeJS('window.scrollTo(0,document.body.scrollHeight)');
         $I->click('(//ins[@class="iCheck-helper"])[5]');
         // click on delete button
         $I->click('OK');
