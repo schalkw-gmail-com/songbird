@@ -94,7 +94,7 @@ class IWantToManageAllUsersCest
         // click on delete button
         $I->click('(//td[@class="sonata-ba-list-field sonata-ba-list-field-actions"])[5]/div/a[3]');
         // check we are on the right url
-        $I->canSeeInCurrentUrl('/user/5/delete');
+        $I->canSeeInCurrentUrl('/delete');
         // click on delete button
         $I->click('//button[@type="submit"]');
         // go back to list page
