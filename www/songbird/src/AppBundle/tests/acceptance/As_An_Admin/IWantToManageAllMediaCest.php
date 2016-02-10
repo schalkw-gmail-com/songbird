@@ -85,6 +85,7 @@ class IWantToManageAllMediaCest
         // now delete user
         // click on delete checkbox
         $I->click('//a[contains(@href, "/admin/app/media/list?context=default")]');
+        $I->executeJS('window.scrollTo(0,document.body.scrollHeight)');
         $I->click('(//ins[@class="iCheck-helper"])[5]');
         // click on delete button
         $I->click('OK');
