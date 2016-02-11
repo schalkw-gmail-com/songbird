@@ -10,6 +10,8 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class UserLogAdmin extends Admin
 {
+    protected $maxPerPage = 10;
+
     /**
      * @param DatagridMapper $datagridMapper
      */
