@@ -70,7 +70,7 @@ class IWantToManageMyOwnProfileCest
         $I->click('My Profile');
         $I->click('(//a[@data-toggle="dropdown"])[1]');
         $I->click('Edit');
-        $I->fillField('//input[@value="lastname1 updated"]', 'test1 Lastname'); 
+        $I->fillField('//input[@value="lastname1 updated"]', 'test1 Lastname');
         $I->click('btn_update_and_edit');
         $I->canSeeElement('//div[contains(@class, "alert-success")]');
     }
