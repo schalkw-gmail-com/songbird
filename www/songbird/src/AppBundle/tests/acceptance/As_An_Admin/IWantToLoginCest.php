@@ -43,7 +43,7 @@ class IWantToLoginCest
     public function logoutSuccessfully(AcceptanceTester $I) {
         $I->click('Log out');
         // now user should be redirected to home page
-        $I->seeCurrentUrlEquals('/app_dev.php/');
+        $I->seeCurrentUrlEquals('/');
     }
 
     /**
