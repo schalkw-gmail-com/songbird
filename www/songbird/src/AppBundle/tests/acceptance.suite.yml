@@ -8,7 +8,7 @@ class_name: AcceptanceTester
 modules:
     enabled:
         - WebDriver:
-            url: 'http://songbird.dev/app_test.php'
+            url: 'http://songbird.dev/'
             browser: firefox
             window_size: 1366x768
             capabilities:
