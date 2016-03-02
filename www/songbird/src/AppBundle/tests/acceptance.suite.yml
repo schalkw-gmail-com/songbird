@@ -10,7 +10,7 @@ modules:
         - WebDriver:
             url: 'http://songbird.dev/'
             browser: firefox
-            window_size: 1366x768
+            window_size: 1366x1024
             capabilities:
                 unexpectedAlertBehaviour: 'accept'
                 webStorageEnabled: true
