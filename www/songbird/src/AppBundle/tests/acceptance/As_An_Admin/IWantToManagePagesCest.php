@@ -74,6 +74,10 @@ class IWantToManagePagesCest
         $I->canSeeInPageSource('cke_1_top');
         $I->click('btn_update_and_edit');
         $I->canSee('has been successfully updated.');
+        // now update file back to home
+        $I->fillField('//input[contains(@id, "_slug")]', 'home');
+        $I->click('btn_update_and_edit');
+        $I->canSee('has been successfully updated.');
     }
 
     /**
