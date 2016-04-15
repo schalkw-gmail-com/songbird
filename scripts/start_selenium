@@ -1,0 +1,6 @@
+#scripts/start_selenium
+
+#!/bin/bash
+
+# choose a firefox profile so we get more consistent result
+java -jar /var/www/html/songbird/scripts/selenium-server-standalone-2.53.0.jar
