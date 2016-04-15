@@ -42,3 +42,5 @@ composer.lock
 /var/logs/*
 !var/logs/.gitkeep
 /var/phpunit.xml
+
+tests/_output/*
